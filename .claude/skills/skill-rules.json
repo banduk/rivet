@@ -44,6 +44,41 @@
         ]
       }
     },
+    "ai-graph-builder": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useAiGraphBuilder.ts",
+        "packages/app/src/components/AiGraphCreator*.tsx",
+        "packages/app/graphs/graph-creator.rivet-project",
+        "packages/app/graphs/graph-creator.rivet-data"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "useAiGraphBuilder",
+          "applyPrompt",
+          "externalFunctions",
+          "graph-creator",
+          "showAiGraphCreatorInputState",
+          "graph",
+          "builder",
+          "graph builder",
+          "packages",
+          "hooks",
+          "components",
+          "AiGraphCreator",
+          "graphs"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph builder",
+          "graph builder.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*ai.*graph.*builder"
+        ]
+      }
+    },
     "base": {
       "type": "base",
       "enforcement": "suggest",

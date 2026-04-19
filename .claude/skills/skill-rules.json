@@ -1,6 +1,49 @@
 {
   "version": "2.0",
   "skills": {
+    "ai-assisted-node-editing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/editors/custom/*AiAssist*.tsx",
+        "packages/app/src/hooks/useAiGraphBuilder.ts",
+        "packages/app/src/components/AiGraphCreator*.tsx",
+        "packages/app/src/state/ai.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "AiAssistEditorBase",
+          "useAiGraphBuilder",
+          "selectedAssistModelState",
+          "graph-creator",
+          "rivet-project",
+          "assisted",
+          "node",
+          "editing",
+          "assisted node editing",
+          "assist",
+          "editors",
+          "individual",
+          "nodes",
+          "graph",
+          "packages",
+          "components",
+          "custom",
+          "AiAssist",
+          "hooks",
+          "AiGraphCreator",
+          "state"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*assisted node editing",
+          "assisted node editing.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*ai.*assisted.*node.*editing"
+        ]
+      }
+    },
     "base": {
       "type": "base",
       "enforcement": "suggest",

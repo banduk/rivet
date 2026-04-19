@@ -1,0 +1,1711 @@
+{
+  "version": "2.0",
+  "skills": {
+    "ai-assisted-node-editing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/editors/custom/*AiAssist*.tsx",
+        "packages/app/src/hooks/useAiGraphBuilder.ts",
+        "packages/app/src/components/AiGraphCreator*.tsx",
+        "packages/app/src/state/ai.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "AiAssistEditorBase",
+          "useAiGraphBuilder",
+          "selectedAssistModelState",
+          "graph-creator",
+          "rivet-project",
+          "assisted",
+          "node",
+          "editing",
+          "assisted node editing",
+          "assist",
+          "editors",
+          "individual",
+          "nodes",
+          "graph",
+          "packages",
+          "components",
+          "custom",
+          "AiAssist",
+          "hooks",
+          "AiGraphCreator",
+          "state"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*assisted node editing",
+          "assisted node editing.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*ai.*assisted.*node.*editing"
+        ]
+      }
+    },
+    "ai-graph-builder": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useAiGraphBuilder.ts",
+        "packages/app/src/components/AiGraphCreator*.tsx",
+        "packages/app/graphs/graph-creator.rivet-project",
+        "packages/app/graphs/graph-creator.rivet-data"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "useAiGraphBuilder",
+          "applyPrompt",
+          "externalFunctions",
+          "graph-creator",
+          "showAiGraphCreatorInputState",
+          "graph",
+          "builder",
+          "graph builder",
+          "whole-graph",
+          "generation",
+          "exposes",
+          "external",
+          "packages",
+          "hooks",
+          "components",
+          "AiGraphCreator",
+          "graphs"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph builder",
+          "graph builder.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*ai.*graph.*builder"
+        ]
+      }
+    },
+    "app-executor-sidecar": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app-executor/bin/executor.mts",
+        "packages/app-executor/scripts/build-executor.mts",
+        "packages/node/src/debugger.ts",
+        "packages/node/src/api.ts",
+        "packages/app/src/hooks/useExecutorSidecar.ts",
+        "packages/app/src/hooks/useRemoteExecutor.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "app-executor",
+          "RivetDebuggerServer",
+          "set-dynamic-data",
+          "executor-bundle",
+          "sidecar",
+          "app",
+          "executor",
+          "app executor sidecar",
+          "node",
+          "packages",
+          "bin",
+          "build-executor",
+          "debugger",
+          "hooks",
+          "useExecutorSidecar",
+          "useRemoteExecutor"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*app executor sidecar",
+          "app executor sidecar.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*app.*executor.*sidecar"
+        ]
+      }
+    },
+    "auto-layout": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useAutoLayoutGraph.ts",
+        "packages/app/src/components/NodeCanvas.tsx",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts",
+        "packages/app/src/hooks/useContextMenuConfiguration.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "autoLayoutGraph",
+          "useAutoLayoutGraph",
+          "auto-layout",
+          "force-directed",
+          "layoutGraph",
+          "auto",
+          "layout",
+          "auto layout",
+          "graph",
+          "algorithm",
+          "wiring",
+          "packages",
+          "hooks",
+          "components",
+          "NodeCanvas",
+          "useGraphBuilderContextMenuHandler",
+          "useContextMenuConfiguration"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*auto layout",
+          "auto layout.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*auto.*layout"
+        ]
+      }
+    },
+    "base": {
+      "type": "base",
+      "enforcement": "suggest",
+      "priority": "critical",
+      "scope": "all",
+      "alwaysActivate": true,
+      "filePatterns": [],
+      "promptTriggers": {
+        "keywords": [
+          "core",
+          "conventions",
+          "tech",
+          "stack",
+          "project"
+        ],
+        "intentPatterns": []
+      }
+    },
+    "cli-run-and-serve": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/cli/src/cli.ts",
+        "packages/cli/src/commands/run.ts",
+        "packages/cli/src/commands/serve.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "rivet-node",
+          "createProcessor",
+          "loadProjectFromFile",
+          "serveHono",
+          "getSSEStream",
+          "LooseDataValue",
+          "rivet-project",
+          "cli",
+          "run",
+          "and",
+          "serve",
+          "cli run and serve",
+          "commands",
+          "graph",
+          "execution",
+          "hono-based",
+          "packages"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*cli run and serve",
+          "cli run and serve.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*cli.*run.*and.*serve"
+        ]
+      }
+    },
+    "code-execution-node": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/CodeNode.ts",
+        "packages/core/src/integrations/CodeRunner.ts",
+        "packages/app/src/components/editors/custom/CodeNodeAIAssistEditor.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "CodeNode",
+          "CodeNodeData",
+          "CodeRunner",
+          "IsomorphicCodeRunner",
+          "runCode",
+          "allowFetch",
+          "allowRequire",
+          "allowRivet",
+          "allowProcess",
+          "allowConsole",
+          "code",
+          "execution",
+          "node",
+          "code execution node",
+          "sandboxed",
+          "interface",
+          "packages",
+          "model",
+          "nodes",
+          "integrations",
+          "components",
+          "editors",
+          "custom",
+          "CodeNodeAIAssistEditor"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*code execution node",
+          "code execution node.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*code.*execution.*node"
+        ]
+      }
+    },
+    "community-template-platform": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/community/**",
+        "packages/app/src/hooks/useUploadNewTemplate*.ts",
+        "packages/app/src/hooks/useNewProjectFromTemplate.ts",
+        "packages/app/src/utils/communityApi.ts",
+        "packages/community/src/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "CommunityOverlay",
+          "RivetTemplateId",
+          "useUploadNewTemplate",
+          "community-profile",
+          "my-templates",
+          "community",
+          "template",
+          "platform",
+          "community template platform",
+          "sharing",
+          "frontend",
+          "packages",
+          "components",
+          "hooks",
+          "useNewProjectFromTemplate",
+          "communityApi"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*community template platform",
+          "community template platform.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*community.*template.*platform"
+        ]
+      }
+    },
+    "context-menu-and-command-palette": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/ContextMenu.tsx",
+        "packages/app/src/hooks/useContextMenu.ts",
+        "packages/app/src/hooks/useContextMenuConfiguration.ts",
+        "packages/app/src/hooks/useContextMenuCommands.ts",
+        "packages/app/src/hooks/useContextMenuAddNodeConfiguration.ts",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "ContextMenu",
+          "contextMenuType",
+          "useContextMenu",
+          "ContextMenuContext",
+          "handleContextMenu",
+          "hiddenUntilSearched",
+          "context",
+          "menu",
+          "and",
+          "command",
+          "palette",
+          "context menu and command palette",
+          "system",
+          "rivet",
+          "graph",
+          "packages",
+          "components",
+          "hooks",
+          "useContextMenuConfiguration",
+          "useContextMenuCommands",
+          "useContextMenuAddNodeConfiguration",
+          "useGraphBuilderContextMenuHandler"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*context menu and command palette",
+          "context menu and command palette.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*context.*menu.*and.*command.*palette"
+        ]
+      }
+    },
+    "control-flow": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/IfElseNode.ts",
+        "packages/core/src/model/nodes/IfNode.ts",
+        "packages/core/src/model/nodes/LoopControllerNode.ts",
+        "packages/core/src/model/nodes/LoopUntilNode.ts",
+        "packages/core/src/model/nodes/RaceInputsNode.ts",
+        "packages/core/src/model/nodes/AbortGraphNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "control-flow-excluded",
+          "loopController",
+          "loopUntil",
+          "raceInputs",
+          "abortGraph",
+          "continueValue",
+          "iterationCount",
+          "attachedData",
+          "createSubProcessor",
+          "control",
+          "flow",
+          "control flow",
+          "control-flow",
+          "nodes",
+          "if/else",
+          "branching",
+          "loop-controller/loop-until",
+          "packages",
+          "model",
+          "IfElseNode",
+          "IfNode",
+          "LoopControllerNode",
+          "LoopUntilNode",
+          "RaceInputsNode",
+          "AbortGraphNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*control flow",
+          "control flow.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*control.*flow"
+        ]
+      }
+    },
+    "data-extraction-and-transform": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/Extract*.ts",
+        "packages/core/src/model/nodes/FilterNode.ts",
+        "packages/core/src/model/nodes/ChunkNode.ts",
+        "packages/core/src/model/nodes/SplitNode.ts",
+        "packages/core/src/model/nodes/SliceNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "extractJson",
+          "extractRegex",
+          "extractObjectPath",
+          "extractYaml",
+          "FilterNode",
+          "ChunkNode",
+          "SplitNode",
+          "coerceType",
+          "expectType",
+          "control-flow-excluded",
+          "data",
+          "extraction",
+          "and",
+          "transform",
+          "data extraction and transform",
+          "patterns",
+          "nodes",
+          "(json/yaml/regex/object-path)",
+          "packages",
+          "model",
+          "Extract",
+          "SliceNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*data extraction and transform",
+          "data extraction and transform.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*data.*extraction.*and.*transform"
+        ]
+      }
+    },
+    "dataset-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/*DatasetNode.ts",
+        "packages/core/src/model/nodes/DatasetNearestNeigborsNode.ts",
+        "packages/core/src/model/nodes/GetDatasetRowNode.ts",
+        "packages/core/src/model/nodes/GetAllDatasetsNode.ts",
+        "packages/core/src/model/nodes/ReplaceDatasetNode.ts",
+        "packages/core/src/integrations/DatasetProvider.ts",
+        "packages/app/src/state/dataStudio.ts",
+        "packages/app/src/components/dataStudio/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "DatasetProvider",
+          "DatasetRow",
+          "DatasetId",
+          "knnDatasetRows",
+          "datasetSelector",
+          "putDatasetRow",
+          "putDatasetMetadata",
+          "dataset",
+          "management",
+          "dataset management",
+          "crud",
+          "nodes",
+          "interface",
+          "packages",
+          "model",
+          "DatasetNode",
+          "DatasetNearestNeigborsNode",
+          "GetDatasetRowNode",
+          "GetAllDatasetsNode",
+          "ReplaceDatasetNode",
+          "integrations",
+          "state",
+          "dataStudio",
+          "components"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*dataset management",
+          "dataset management.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*dataset.*management"
+        ]
+      }
+    },
+    "event-system": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/RaiseEventNode.ts",
+        "packages/core/src/model/nodes/WaitForEventNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "raiseEvent",
+          "waitEvent",
+          "userEvent",
+          "WaitForEventNode",
+          "RaiseEventNodeImpl",
+          "InternalProcessContext",
+          "event",
+          "system",
+          "event system",
+          "pub/sub",
+          "coordination",
+          "concurrent",
+          "graph",
+          "packages",
+          "model",
+          "nodes",
+          "RaiseEventNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*event system",
+          "event system.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*event.*system"
+        ]
+      }
+    },
+    "execution-recording-and-playback": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/recording/ExecutionRecorder.ts",
+        "packages/core/src/recording/RecordedEvents.ts",
+        "packages/app/src/hooks/useLoadRecording.ts",
+        "packages/app/src/hooks/useSaveRecording.ts",
+        "packages/app/src/state/execution.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "ExecutionRecorder",
+          "replayRecording",
+          "loadedRecordingState",
+          "lastRecordingState",
+          "recordExecutionsState",
+          "SerializedRecording",
+          "execution",
+          "recording",
+          "and",
+          "playback",
+          "execution recording and playback",
+          "graph",
+          "executions",
+          "disk",
+          "replaying",
+          "packages",
+          "RecordedEvents",
+          "hooks",
+          "useLoadRecording",
+          "useSaveRecording",
+          "state"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*execution recording and playback",
+          "execution recording and playback.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*execution.*recording.*and.*playback"
+        ]
+      }
+    },
+    "factor-into-subgraph": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useFactorIntoSubgraph.ts",
+        "packages/app/src/hooks/useContextMenuConfiguration.ts",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "factor-into-subgraph",
+          "nodes-factor-into-subgraph",
+          "useFactorIntoSubgraph",
+          "Create Subgraph",
+          "factor",
+          "into",
+          "subgraph",
+          "factor into subgraph",
+          "extract",
+          "selected",
+          "nodes",
+          "auto-generated",
+          "packages",
+          "hooks",
+          "useContextMenuConfiguration",
+          "useGraphBuilderContextMenuHandler"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*Create Subgraph",
+          "Create Subgraph.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*factor into subgraph",
+          "factor into subgraph.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*factor.*into.*subgraph"
+        ]
+      }
+    },
+    "file-and-audio-io": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/ReadFileNode.ts",
+        "packages/core/src/model/nodes/ReadDirectoryNode.ts",
+        "packages/core/src/model/nodes/AudioNode.ts",
+        "packages/core/src/model/nodes/PlayAudioNode.ts",
+        "packages/app/src/io/TauriBrowserAudioProvider.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "nativeApi",
+          "audioProvider",
+          "readTextFile",
+          "readBinaryFile",
+          "readdir",
+          "DataRef",
+          "base64ToUint8Array",
+          "playAudio",
+          "file",
+          "and",
+          "audio",
+          "file and audio",
+          "reading",
+          "playback",
+          "nodes",
+          "packages",
+          "model",
+          "ReadFileNode",
+          "ReadDirectoryNode",
+          "AudioNode",
+          "PlayAudioNode",
+          "TauriBrowserAudioProvider"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*file and audio",
+          "file and audio.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*file.*and.*audio.*io"
+        ]
+      }
+    },
+    "global-variables": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/GetGlobalNode.ts",
+        "packages/core/src/model/nodes/SetGlobalNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "getGlobal",
+          "setGlobal",
+          "waitForGlobal",
+          "onDemand",
+          "GetGlobalNode",
+          "SetGlobalNode",
+          "global variable",
+          "global",
+          "variables",
+          "global variables",
+          "getglobal/setglobal",
+          "nodes",
+          "shared",
+          "key-value",
+          "state",
+          "packages",
+          "model"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*global variable",
+          "global variable.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*global variables",
+          "global variables.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*global.*variables"
+        ]
+      }
+    },
+    "graph-execution-engine": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/GraphProcessor.ts",
+        "packages/core/src/model/ProcessContext.ts",
+        "packages/core/src/model/NodeImpl.ts",
+        "packages/core/src/model/NodeRegistration.ts",
+        "packages/core/src/model/Nodes.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "GraphProcessor",
+          "processGraph",
+          "InternalProcessContext",
+          "control-flow-excluded",
+          "loopController",
+          "createSubProcessor",
+          "splitRun",
+          "NodeRegistration",
+          "graph",
+          "execution",
+          "engine",
+          "graph execution engine",
+          "model",
+          "control",
+          "flow",
+          "packages",
+          "ProcessContext",
+          "NodeImpl",
+          "Nodes"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph execution engine",
+          "graph execution engine.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*execution.*engine"
+        ]
+      }
+    },
+    "graph-execution-ui": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/dataFlow.ts",
+        "packages/app/src/state/execution.ts",
+        "packages/app/src/hooks/useGraphExecutor.ts",
+        "packages/app/src/hooks/useLocalExecutor.ts",
+        "packages/app/src/hooks/useRemoteExecutor.ts",
+        "packages/app/src/hooks/useCurrentExecution.ts",
+        "packages/app/src/components/ActionBar.tsx",
+        "packages/app/src/components/NodeOutput.tsx",
+        "packages/app/src/components/GraphExecutionSelectorBar.tsx",
+        "packages/app/src/components/VisualNode.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "graphRunningState",
+          "lastRunDataByNodeState",
+          "useGraphExecutor",
+          "useLocalExecutor",
+          "useCurrentExecution",
+          "ProcessDataForNode",
+          "splitOutputData",
+          "selectedProcessPage",
+          "graph",
+          "execution",
+          "graph execution",
+          "state",
+          "node",
+          "status",
+          "packages",
+          "dataFlow",
+          "hooks",
+          "useRemoteExecutor",
+          "components",
+          "ActionBar",
+          "NodeOutput",
+          "GraphExecutionSelectorBar",
+          "VisualNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph execution",
+          "graph execution.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*execution.*ui"
+        ]
+      }
+    },
+    "graph-history-and-versioning": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/commands/*.ts",
+        "packages/app/src/hooks/useGraphRevisions.ts",
+        "packages/app/src/hooks/useGraphHistoryNavigation.ts",
+        "packages/app/src/hooks/useChooseHistoricalGraph.ts",
+        "packages/app/src/hooks/useHistoricalNodeChangeInfo.ts",
+        "packages/app/src/utils/ProjectRevisionCalculator.ts",
+        "packages/app/src/components/GraphRevisionList.tsx",
+        "packages/app/src/components/NodeChangesModal.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "historicalGraphState",
+          "commandHistoryStackStatePerGraph",
+          "useUndo",
+          "useRedo",
+          "useCommand",
+          "CalculatedRevision",
+          "viewingNodeChangesState",
+          "graphNavigationStackState",
+          "graph",
+          "history",
+          "and",
+          "versioning",
+          "graph history and versioning",
+          "undo/redo",
+          "command",
+          "git-based",
+          "packages",
+          "commands",
+          "hooks",
+          "useGraphRevisions",
+          "useGraphHistoryNavigation",
+          "useChooseHistoricalGraph",
+          "useHistoricalNodeChangeInfo",
+          "ProjectRevisionCalculator",
+          "components",
+          "GraphRevisionList",
+          "NodeChangesModal"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph history and versioning",
+          "graph history and versioning.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*history.*and.*versioning"
+        ]
+      }
+    },
+    "graph-search": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useSearchGraph.ts",
+        "packages/app/src/hooks/useSearchProject.ts",
+        "packages/app/src/hooks/useFuseSearch.ts",
+        "packages/app/src/components/NavigationBar.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "useFuseSearch",
+          "useSearchGraph",
+          "useSearchProject",
+          "searchingGraphState",
+          "goToSearchState",
+          "searchMatchingNodeIds",
+          "graph",
+          "search",
+          "graph search",
+          "fuzzy",
+          "node",
+          "within",
+          "single",
+          "packages",
+          "hooks",
+          "components",
+          "NavigationBar"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph search",
+          "graph search.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*search"
+        ]
+      }
+    },
+    "http-client-node": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/HttpCallNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "HttpCallNode",
+          "httpCall",
+          "http_call",
+          "HttpCallNodeData",
+          "http",
+          "client",
+          "node",
+          "http client node",
+          "implementation",
+          "fetch-based",
+          "packages",
+          "model",
+          "nodes"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*http client node",
+          "http client node.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*http.*client.*node"
+        ]
+      }
+    },
+    "llm-chat-nodes": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/ChatNode.ts",
+        "packages/core/src/model/nodes/ChatLoopNode.ts",
+        "packages/core/src/model/nodes/ChatNodeBase.ts",
+        "packages/core/src/model/nodes/AssemblePromptNode.ts",
+        "packages/core/src/model/nodes/AssembleMessageNode.ts",
+        "packages/core/src/model/nodes/TrimChatMessagesNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "ChatNodeBase",
+          "ChatNodeData",
+          "ChatNodeConfigData",
+          "AssemblePromptNode",
+          "AssembleMessageNode",
+          "chatCompletions",
+          "streamChatCompletions",
+          "isCacheBreakpoint",
+          "llm",
+          "chat",
+          "nodes",
+          "llm chat nodes",
+          "chatnode",
+          "chatloopnode",
+          "packages",
+          "model",
+          "TrimChatMessagesNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm chat nodes",
+          "llm chat nodes.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm.*chat.*nodes"
+        ]
+      }
+    },
+    "llm-provider-plugins": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/plugins/*/plugin.ts",
+        "packages/core/src/plugins/*/nodes/*.ts",
+        "packages/core/src/plugins/*/index.ts",
+        "packages/core/src/plugins.ts",
+        "packages/app/src/plugins.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "RivetPlugin",
+          "PluginNodeImpl",
+          "pluginNodeDefinition",
+          "configSpec",
+          "pullEnvironmentVariable",
+          "getPluginConfig",
+          "register",
+          "llm",
+          "provider",
+          "plugins",
+          "llm provider plugins",
+          "implementing",
+          "(nodes",
+          "config)",
+          "packages",
+          "plugin",
+          "nodes",
+          "index"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm provider plugins",
+          "llm provider plugins.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm.*provider.*plugins"
+        ]
+      }
+    },
+    "mcp-integration": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/MCP*.ts",
+        "packages/core/src/integrations/mcp/*.ts",
+        "packages/app/src/components/ProjectMCPConfiguration.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "MCPProvider",
+          "MCPBaseNodeData",
+          "mcpToolCall",
+          "mcpDiscovery",
+          "mcpGetPrompt",
+          "transportType",
+          "serverId",
+          "loadMCPConfiguration",
+          "mcp",
+          "integration",
+          "mcp integration",
+          "(model",
+          "context",
+          "protocol)",
+          "client",
+          "nodes",
+          "packages",
+          "model",
+          "integrations",
+          "components",
+          "ProjectMCPConfiguration"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*mcp integration",
+          "mcp integration.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*mcp.*integration"
+        ]
+      }
+    },
+    "node-clipboard-copy-paste": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/clipboard.ts",
+        "packages/app/src/hooks/useCopyNodes.ts",
+        "packages/app/src/hooks/usePasteNodes.ts",
+        "packages/app/src/hooks/useCopyNodesHotkeys.ts",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "clipboardState",
+          "useCopyNodes",
+          "usePasteNodes",
+          "NodesClipboardItem",
+          "pasteNodes",
+          "copyNodes",
+          "node",
+          "clipboard",
+          "copy",
+          "paste",
+          "node clipboard copy paste",
+          "copy/paste",
+          "duplicate",
+          "nodes",
+          "graph",
+          "canvas",
+          "packages",
+          "state",
+          "hooks",
+          "useCopyNodesHotkeys",
+          "useGraphBuilderContextMenuHandler"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node clipboard copy paste",
+          "node clipboard copy paste.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node.*clipboard.*copy.*paste"
+        ]
+      }
+    },
+    "node-property-editors": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/editors/**",
+        "packages/core/src/model/EditorDefinition.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "EditorDefinition",
+          "DefaultNodeEditor",
+          "SharedEditorProps",
+          "getEditors",
+          "dataKey",
+          "useInputToggleDataKey",
+          "node",
+          "property",
+          "editors",
+          "node property editors",
+          "editor",
+          "components",
+          "inputs",
+          "packages",
+          "model"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node property editors",
+          "node property editors.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node.*property.*editors"
+        ]
+      }
+    },
+    "nodejs-runtime": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/node/src/**",
+        "packages/app-executor/bin/**",
+        "packages/app-executor/scripts/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "NodeNativeApi",
+          "NodeMCPProvider",
+          "NodeDatasetProvider",
+          "NodeCodeRunner",
+          "createProcessor",
+          "startDebuggerServer",
+          "app-executor",
+          "runGraph",
+          "nodejs",
+          "runtime",
+          "nodejs runtime",
+          "node",
+          "packages",
+          "bin"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*nodejs runtime",
+          "nodejs runtime.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*nodejs.*runtime"
+        ]
+      }
+    },
+    "packages": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/*.ts",
+        "packages/core/src/model/NodeImpl.ts",
+        "packages/core/src/model/DataValue.ts",
+        "packages/app/src/commands/*.ts",
+        "packages/app/src/state/*.ts",
+        "packages/core/bundle.esbuild.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "NodeImpl",
+          "nodeDefinition",
+          "DataValue",
+          "ChartNode",
+          "GraphProcessor",
+          "useCommand",
+          "atomWithStorage",
+          "nodesState",
+          "packages",
+          "node",
+          "implementations",
+          "command",
+          "pattern",
+          "state",
+          "model",
+          "nodes",
+          "commands",
+          "bundle.esbuild"
+        ],
+        "intentPatterns": []
+      }
+    },
+    "plugin-system": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/plugins/**",
+        "packages/core/src/model/RivetPlugin.ts",
+        "packages/core/src/model/NodeDefinition.ts",
+        "packages/core/src/model/NodeImpl.ts",
+        "packages/core/src/model/NodeRegistration.ts",
+        "packages/app/src/hooks/useProjectPlugins.ts",
+        "packages/app/src/plugins.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "RivetPlugin",
+          "PluginNodeImpl",
+          "pluginNodeDefinition",
+          "registerPlugin",
+          "PluginLoadSpec",
+          "configSpec",
+          "plugin",
+          "system",
+          "plugin system",
+          "authoring",
+          "registration",
+          "loading",
+          "rivet's",
+          "packages",
+          "plugins",
+          "model",
+          "NodeDefinition",
+          "NodeImpl",
+          "NodeRegistration",
+          "hooks",
+          "useProjectPlugins"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*plugin system",
+          "plugin system.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*plugin.*system"
+        ]
+      }
+    },
+    "project-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/savedGraphs.ts",
+        "packages/app/src/hooks/useLoadProject.ts",
+        "packages/app/src/hooks/useSaveProject.ts",
+        "packages/app/src/hooks/useNewProject.ts",
+        "packages/app/src/hooks/useLoadProjectWithFileBrowser.ts",
+        "packages/core/src/model/Project.ts",
+        "packages/core/src/utils/serialization/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "projectState",
+          "loadedProjectState",
+          "projectDataState",
+          "serializeProject",
+          "deserializeProject",
+          "ProjectMetadata",
+          "mainGraphId",
+          "rivet-project",
+          "project",
+          "management",
+          "project management",
+          "loading",
+          "saving",
+          "managing",
+          "rivet",
+          "packages",
+          "state",
+          "savedGraphs",
+          "hooks",
+          "useLoadProject",
+          "useSaveProject",
+          "useNewProject",
+          "useLoadProjectWithFileBrowser",
+          "model",
+          "serialization"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*project management",
+          "project management.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*project.*management"
+        ]
+      }
+    },
+    "prompt-designer": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/PromptDesigner.tsx",
+        "packages/app/src/state/promptDesigner.ts",
+        "packages/app/src/hooks/useGetAdHocInternalProcessContext.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "promptDesigner",
+          "PromptDesignerRenderer",
+          "promptDesignerAttachedChatNodeState",
+          "runAdHocChat",
+          "useRunTestGroup",
+          "prompt",
+          "designer",
+          "prompt designer",
+          "overlay",
+          "ad-hoc",
+          "chat",
+          "packages",
+          "components",
+          "state",
+          "hooks",
+          "useGetAdHocInternalProcessContext"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*prompt designer",
+          "prompt designer.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*prompt.*designer"
+        ]
+      }
+    },
+    "remote-debugger": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/node/src/debugger.ts",
+        "packages/app/src/hooks/useRemoteDebugger.ts",
+        "packages/app/src/hooks/useRemoteExecutor.ts",
+        "packages/app/src/components/DebuggerConnectPanel.tsx",
+        "packages/app/src/state/execution.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "startDebuggerServer",
+          "useRemoteDebugger",
+          "RivetDebuggerServer",
+          "remoteDebuggerState",
+          "setCurrentDebuggerMessageHandler",
+          "remote",
+          "debugger",
+          "remote debugger",
+          "websocket",
+          "protocol",
+          "server",
+          "packages",
+          "node",
+          "hooks",
+          "useRemoteExecutor",
+          "components",
+          "DebuggerConnectPanel",
+          "state",
+          "execution"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*remote debugger",
+          "remote debugger.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*remote.*debugger"
+        ]
+      }
+    },
+    "settings-and-api-keys": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/settings.ts",
+        "packages/app/src/state/storage.ts",
+        "packages/app/src/components/SettingsModal.tsx",
+        "packages/app/src/utils/tauri.ts",
+        "packages/core/src/model/Settings.ts",
+        "packages/core/src/utils/getPluginConfig.ts",
+        "packages/node/src/api.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "settingsState",
+          "pluginSettings",
+          "pluginEnv",
+          "fillMissingSettingsFromEnvironmentVariables",
+          "getPluginConfig",
+          "openAiKey",
+          "apiKey",
+          "pullEnvironmentVariable",
+          "settings",
+          "and",
+          "api",
+          "keys",
+          "settings and api keys",
+          "state",
+          "storage",
+          "plugin",
+          "config",
+          "packages",
+          "components",
+          "SettingsModal",
+          "tauri",
+          "model",
+          "node"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*settings and api keys",
+          "settings and api keys.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*settings.*and.*api.*keys"
+        ]
+      }
+    },
+    "software-update-notifications": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useCheckForUpdate.tsx",
+        "packages/app/src/hooks/useMonitorUpdateStatus.ts",
+        "packages/app/src/components/UpdateModal.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "checkUpdate",
+          "installUpdate",
+          "onUpdaterEvent",
+          "updateModalOpenState",
+          "skippedMaxVersion",
+          "software",
+          "update",
+          "notifications",
+          "software update notifications",
+          "tauri-based",
+          "check",
+          "status",
+          "packages",
+          "hooks",
+          "useCheckForUpdate",
+          "useMonitorUpdateStatus",
+          "components",
+          "UpdateModal"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*software update notifications",
+          "software update notifications.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*software.*update.*notifications"
+        ]
+      }
+    },
+    "subgraph-composition": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/SubGraphNode.ts",
+        "packages/core/src/model/nodes/CallGraphNode.ts",
+        "packages/core/src/model/nodes/GraphInputNode.ts",
+        "packages/core/src/model/nodes/GraphOutputNode.ts",
+        "packages/core/src/model/nodes/GraphReferenceNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "SubGraphNode",
+          "CallGraphNode",
+          "GraphInputNode",
+          "GraphOutputNode",
+          "GraphReferenceNode",
+          "createSubProcessor",
+          "graph-reference",
+          "graphId",
+          "graphInputs",
+          "graphOutputs",
+          "subgraph",
+          "composition",
+          "subgraph composition",
+          "callgraph",
+          "graphinput",
+          "graphoutput",
+          "graphreference",
+          "packages",
+          "model",
+          "nodes"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*subgraph composition",
+          "subgraph composition.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*subgraph.*composition"
+        ]
+      }
+    },
+    "trivet-testing-framework": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/trivet/src/**",
+        "packages/app/src/state/trivet.ts",
+        "packages/app/src/hooks/useTestSuite.ts",
+        "packages/app/src/components/trivet/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "TrivetTestSuite",
+          "TrivetTestCase",
+          "runTrivet",
+          "TrivetOpts",
+          "validationGraph",
+          "trivetTypes",
+          "trivet",
+          "testing",
+          "framework",
+          "trivet testing framework",
+          "graph-output",
+          "rivet",
+          "test",
+          "packages",
+          "state",
+          "hooks",
+          "useTestSuite",
+          "components"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*trivet testing framework",
+          "trivet testing framework.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*trivet.*testing.*framework"
+        ]
+      }
+    },
+    "undo-redo-command-system": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/commands/*.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "undo",
+          "redo",
+          "useCommand",
+          "CommandHistory",
+          "commandHistoryStack",
+          "redoStack",
+          "command",
+          "system",
+          "undo redo command system",
+          "pattern",
+          "graph",
+          "undo/redo",
+          "rivet",
+          "packages",
+          "commands"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*undo redo command system",
+          "undo redo command system.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*undo.*redo.*command.*system"
+        ]
+      }
+    },
+    "user-input-node": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/UserInputNode.ts",
+        "packages/app/src/components/UserInputModal.tsx",
+        "packages/app/src/components/nodes/UserInputNode.tsx",
+        "packages/app/src/state/userInput.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "userInput",
+          "UserInputNode",
+          "requestUserInput",
+          "userInputModal",
+          "questionsAndAnswers",
+          "user",
+          "input",
+          "node",
+          "user input node",
+          "implementation",
+          "modal",
+          "process",
+          "context",
+          "packages",
+          "model",
+          "nodes",
+          "components",
+          "state"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*user input node",
+          "user input node.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*user.*input.*node"
+        ]
+      }
+    },
+    "vector-search-and-embeddings": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/VectorStoreNode.ts",
+        "packages/core/src/model/nodes/VectorNearestNeighborsNode.ts",
+        "packages/core/src/model/nodes/GetEmbeddingNode.ts",
+        "packages/core/src/integrations/EmbeddingGenerator.ts",
+        "packages/core/src/integrations/VectorDatabase.ts",
+        "packages/core/src/integrations/integrations.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "VectorDatabase",
+          "EmbeddingGenerator",
+          "getIntegration",
+          "registerIntegration",
+          "vectorStore",
+          "getEmbedding",
+          "vectorNearestNeighbors",
+          "VectorDataValue",
+          "vector",
+          "search",
+          "and",
+          "embeddings",
+          "vector search and embeddings",
+          "store",
+          "operations",
+          "nearest-neighbor",
+          "packages",
+          "model",
+          "nodes",
+          "VectorStoreNode",
+          "VectorNearestNeighborsNode",
+          "GetEmbeddingNode",
+          "integrations"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*vector search and embeddings",
+          "vector search and embeddings.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*vector.*search.*and.*embeddings"
+        ]
+      }
+    },
+    "visual-graph-canvas": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/NodeCanvas.tsx",
+        "packages/app/src/components/VisualNode.tsx",
+        "packages/app/src/components/WireLayer.tsx",
+        "packages/app/src/components/Wire.tsx",
+        "packages/app/src/components/Port.tsx",
+        "packages/app/src/components/DraggableNode.tsx",
+        "packages/app/src/hooks/useCanvasPositioning.ts",
+        "packages/app/src/hooks/useNodePortPositions.ts",
+        "packages/app/src/hooks/useDraggingNode.ts",
+        "packages/app/src/hooks/useDraggingWire.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "canvas",
+          "NodeCanvas",
+          "VisualNode",
+          "WireLayer",
+          "canvasPosition",
+          "draggingWire",
+          "port",
+          "PortId",
+          "canvasPositionState",
+          "visual",
+          "graph",
+          "visual graph canvas",
+          "node",
+          "rendering",
+          "pan/zoom",
+          "wire",
+          "packages",
+          "components",
+          "DraggableNode",
+          "hooks",
+          "useCanvasPositioning",
+          "useNodePortPositions",
+          "useDraggingNode",
+          "useDraggingWire"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*visual graph canvas",
+          "visual graph canvas.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*visual.*graph.*canvas"
+        ]
+      }
+    }
+  }
+}

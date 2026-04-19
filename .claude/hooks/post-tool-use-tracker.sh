@@ -291,6 +291,8 @@ detect_skill_domain() {
         detected_skills="remote-debugger"
     elif [[ "$file" =~ /settings ]] || [[ "$file" =~ /storage ]] || [[ "$file" =~ /SettingsModal ]] || [[ "$file" =~ /tauri ]] || [[ "$file" =~ /Settings ]] || [[ "$file" =~ /getPluginConfig ]] || [[ "$file" =~ /api ]]; then
         detected_skills="settings-and-api-keys"
+    elif [[ "$file" =~ /useCheckForUpdate ]] || [[ "$file" =~ /useMonitorUpdateStatus ]] || [[ "$file" =~ /UpdateModal ]]; then
+        detected_skills="software-update-notifications"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then
         detected_skills="subgraph-composition"
     elif [[ "$file" =~ /trivet/ ]] || [[ "$file" =~ /trivet ]] || [[ "$file" =~ /useTestSuite ]]; then

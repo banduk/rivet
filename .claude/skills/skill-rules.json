@@ -1362,6 +1362,45 @@
         ]
       }
     },
+    "software-update-notifications": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useCheckForUpdate.tsx",
+        "packages/app/src/hooks/useMonitorUpdateStatus.ts",
+        "packages/app/src/components/UpdateModal.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "checkUpdate",
+          "installUpdate",
+          "onUpdaterEvent",
+          "updateModalOpenState",
+          "skippedMaxVersion",
+          "software",
+          "update",
+          "notifications",
+          "software update notifications",
+          "tauri-based",
+          "check",
+          "status",
+          "packages",
+          "hooks",
+          "useCheckForUpdate",
+          "useMonitorUpdateStatus",
+          "components",
+          "UpdateModal"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*software update notifications",
+          "software update notifications.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*software.*update.*notifications"
+        ]
+      }
+    },
     "subgraph-composition": {
       "type": "domain",
       "enforcement": "suggest",

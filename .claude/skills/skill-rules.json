@@ -371,6 +371,38 @@
         ]
       }
     },
+    "http-client-node": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/HttpCallNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "HttpCallNode",
+          "httpCall",
+          "http_call",
+          "HttpCallNodeData",
+          "http",
+          "client",
+          "node",
+          "http client node",
+          "implementation",
+          "fetch-based",
+          "packages",
+          "model",
+          "nodes"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*http client node",
+          "http client node.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*http.*client.*node"
+        ]
+      }
+    },
     "llm-chat-nodes": {
       "type": "domain",
       "enforcement": "suggest",

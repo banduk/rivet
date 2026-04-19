@@ -298,6 +298,52 @@
         ]
       }
     },
+    "context-menu-and-command-palette": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/ContextMenu.tsx",
+        "packages/app/src/hooks/useContextMenu.ts",
+        "packages/app/src/hooks/useContextMenuConfiguration.ts",
+        "packages/app/src/hooks/useContextMenuCommands.ts",
+        "packages/app/src/hooks/useContextMenuAddNodeConfiguration.ts",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "ContextMenu",
+          "contextMenuType",
+          "useContextMenu",
+          "ContextMenuContext",
+          "handleContextMenu",
+          "hiddenUntilSearched",
+          "context",
+          "menu",
+          "and",
+          "command",
+          "palette",
+          "context menu and command palette",
+          "system",
+          "rivet",
+          "graph",
+          "packages",
+          "components",
+          "hooks",
+          "useContextMenuConfiguration",
+          "useContextMenuCommands",
+          "useContextMenuAddNodeConfiguration",
+          "useGraphBuilderContextMenuHandler"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*context menu and command palette",
+          "context menu and command palette.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*context.*menu.*and.*command.*palette"
+        ]
+      }
+    },
     "control-flow": {
       "type": "domain",
       "enforcement": "suggest",

@@ -231,6 +231,8 @@ detect_skill_domain() {
         detected_skills="ai-assisted-node-editing"
     elif [[ "$file" =~ /useAiGraphBuilder ]] || [[ "$file" =~ /components/ ]] || [[ "$file" =~ /graph-creator.rivet-project ]] || [[ "$file" =~ /graph-creator.rivet-data ]]; then
         detected_skills="ai-graph-builder"
+    elif [[ "$file" =~ /useAutoLayoutGraph ]] || [[ "$file" =~ /NodeCanvas ]] || [[ "$file" =~ /useGraphBuilderContextMenuHandler ]] || [[ "$file" =~ /useContextMenuConfiguration ]]; then
+        detected_skills="auto-layout"
     elif [[ "$file" =~ /CodeNode ]] || [[ "$file" =~ /CodeRunner ]] || [[ "$file" =~ /CodeNodeAIAssistEditor ]]; then
         detected_skills="code-execution-node"
     elif [[ "$file" =~ /IfElseNode ]] || [[ "$file" =~ /IfNode ]] || [[ "$file" =~ /LoopControllerNode ]] || [[ "$file" =~ /LoopUntilNode ]] || [[ "$file" =~ /RaceInputsNode ]] || [[ "$file" =~ /AbortGraphNode ]]; then

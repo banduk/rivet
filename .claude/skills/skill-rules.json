@@ -79,6 +79,45 @@
         ]
       }
     },
+    "auto-layout": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useAutoLayoutGraph.ts",
+        "packages/app/src/components/NodeCanvas.tsx",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts",
+        "packages/app/src/hooks/useContextMenuConfiguration.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "autoLayoutGraph",
+          "useAutoLayoutGraph",
+          "auto-layout",
+          "force-directed",
+          "layoutGraph",
+          "auto",
+          "layout",
+          "auto layout",
+          "graph",
+          "algorithm",
+          "wiring",
+          "packages",
+          "hooks",
+          "components",
+          "NodeCanvas",
+          "useGraphBuilderContextMenuHandler",
+          "useContextMenuConfiguration"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*auto layout",
+          "auto layout.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*auto.*layout"
+        ]
+      }
+    },
     "base": {
       "type": "base",
       "enforcement": "suggest",

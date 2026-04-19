@@ -653,6 +653,58 @@
           "(create|update|fix|add|modify|change|debug|refactor|implement|build).*vector.*search.*and.*embeddings"
         ]
       }
+    },
+    "visual-graph-canvas": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/NodeCanvas.tsx",
+        "packages/app/src/components/VisualNode.tsx",
+        "packages/app/src/components/WireLayer.tsx",
+        "packages/app/src/components/Wire.tsx",
+        "packages/app/src/components/Port.tsx",
+        "packages/app/src/components/DraggableNode.tsx",
+        "packages/app/src/hooks/useCanvasPositioning.ts",
+        "packages/app/src/hooks/useNodePortPositions.ts",
+        "packages/app/src/hooks/useDraggingNode.ts",
+        "packages/app/src/hooks/useDraggingWire.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "canvas",
+          "NodeCanvas",
+          "VisualNode",
+          "WireLayer",
+          "canvasPosition",
+          "draggingWire",
+          "port",
+          "PortId",
+          "canvasPositionState",
+          "visual",
+          "graph",
+          "visual graph canvas",
+          "node",
+          "rendering",
+          "pan/zoom",
+          "wire",
+          "packages",
+          "components",
+          "DraggableNode",
+          "hooks",
+          "useCanvasPositioning",
+          "useNodePortPositions",
+          "useDraggingNode",
+          "useDraggingWire"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*visual graph canvas",
+          "visual graph canvas.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*visual.*graph.*canvas"
+        ]
+      }
     }
   }
 }

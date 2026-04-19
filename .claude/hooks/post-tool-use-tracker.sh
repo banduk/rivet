@@ -257,6 +257,8 @@ detect_skill_domain() {
         detected_skills="user-input-node"
     elif [[ "$file" =~ /VectorStoreNode ]] || [[ "$file" =~ /VectorNearestNeighborsNode ]] || [[ "$file" =~ /GetEmbeddingNode ]] || [[ "$file" =~ /EmbeddingGenerator ]] || [[ "$file" =~ /VectorDatabase ]] || [[ "$file" =~ /integrations ]]; then
         detected_skills="vector-search-and-embeddings"
+    elif [[ "$file" =~ /NodeCanvas ]] || [[ "$file" =~ /VisualNode ]] || [[ "$file" =~ /WireLayer ]] || [[ "$file" =~ /Wire ]] || [[ "$file" =~ /Port ]] || [[ "$file" =~ /DraggableNode ]] || [[ "$file" =~ /useCanvasPositioning ]] || [[ "$file" =~ /useNodePortPositions ]] || [[ "$file" =~ /useDraggingNode ]] || [[ "$file" =~ /useDraggingWire ]]; then
+        detected_skills="visual-graph-canvas"
     fi
 
     echo "$detected_skills"

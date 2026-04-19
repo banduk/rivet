@@ -233,6 +233,8 @@ detect_skill_domain() {
         detected_skills="ai-graph-builder"
     elif [[ "$file" =~ /useAutoLayoutGraph ]] || [[ "$file" =~ /NodeCanvas ]] || [[ "$file" =~ /useGraphBuilderContextMenuHandler ]] || [[ "$file" =~ /useContextMenuConfiguration ]]; then
         detected_skills="auto-layout"
+    elif [[ "$file" =~ /cli ]] || [[ "$file" =~ /run ]] || [[ "$file" =~ /serve ]]; then
+        detected_skills="cli-run-and-serve"
     elif [[ "$file" =~ /CodeNode ]] || [[ "$file" =~ /CodeRunner ]] || [[ "$file" =~ /CodeNodeAIAssistEditor ]]; then
         detected_skills="code-execution-node"
     elif [[ "$file" =~ /community/ ]] || [[ "$file" =~ /hooks/ ]] || [[ "$file" =~ /useNewProjectFromTemplate ]] || [[ "$file" =~ /communityApi ]]; then

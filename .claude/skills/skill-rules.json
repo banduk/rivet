@@ -136,6 +136,44 @@
         "intentPatterns": []
       }
     },
+    "cli-run-and-serve": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/cli/src/cli.ts",
+        "packages/cli/src/commands/run.ts",
+        "packages/cli/src/commands/serve.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "rivet-node",
+          "createProcessor",
+          "loadProjectFromFile",
+          "serveHono",
+          "getSSEStream",
+          "LooseDataValue",
+          "rivet-project",
+          "cli",
+          "run",
+          "and",
+          "serve",
+          "cli run and serve",
+          "commands",
+          "graph",
+          "execution",
+          "hono-based",
+          "packages"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*cli run and serve",
+          "cli run and serve.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*cli.*run.*and.*serve"
+        ]
+      }
+    },
     "code-execution-node": {
       "type": "domain",
       "enforcement": "suggest",

@@ -567,6 +567,40 @@
         ]
       }
     },
+    "undo-redo-command-system": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/commands/*.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "undo",
+          "redo",
+          "useCommand",
+          "CommandHistory",
+          "commandHistoryStack",
+          "redoStack",
+          "command",
+          "system",
+          "undo redo command system",
+          "pattern",
+          "graph",
+          "undo/redo",
+          "rivet",
+          "packages",
+          "commands"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*undo redo command system",
+          "undo redo command system.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*undo.*redo.*command.*system"
+        ]
+      }
+    },
     "user-input-node": {
       "type": "domain",
       "enforcement": "suggest",

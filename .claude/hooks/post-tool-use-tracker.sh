@@ -253,6 +253,8 @@ detect_skill_domain() {
         detected_skills="packages"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then
         detected_skills="subgraph-composition"
+    elif [[ "$file" =~ /commands/ ]]; then
+        detected_skills="undo-redo-command-system"
     elif [[ "$file" =~ /UserInputNode ]] || [[ "$file" =~ /UserInputModal ]] || [[ "$file" =~ /userInput ]]; then
         detected_skills="user-input-node"
     elif [[ "$file" =~ /VectorStoreNode ]] || [[ "$file" =~ /VectorNearestNeighborsNode ]] || [[ "$file" =~ /GetEmbeddingNode ]] || [[ "$file" =~ /EmbeddingGenerator ]] || [[ "$file" =~ /VectorDatabase ]] || [[ "$file" =~ /integrations ]]; then

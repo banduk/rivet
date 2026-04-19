@@ -279,6 +279,8 @@ detect_skill_domain() {
         detected_skills="prompt-designer"
     elif [[ "$file" =~ /debugger ]] || [[ "$file" =~ /useRemoteDebugger ]] || [[ "$file" =~ /useRemoteExecutor ]] || [[ "$file" =~ /DebuggerConnectPanel ]] || [[ "$file" =~ /execution ]]; then
         detected_skills="remote-debugger"
+    elif [[ "$file" =~ /settings ]] || [[ "$file" =~ /storage ]] || [[ "$file" =~ /SettingsModal ]] || [[ "$file" =~ /tauri ]] || [[ "$file" =~ /Settings ]] || [[ "$file" =~ /getPluginConfig ]] || [[ "$file" =~ /api ]]; then
+        detected_skills="settings-and-api-keys"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then
         detected_skills="subgraph-composition"
     elif [[ "$file" =~ /trivet/ ]] || [[ "$file" =~ /trivet ]] || [[ "$file" =~ /useTestSuite ]]; then

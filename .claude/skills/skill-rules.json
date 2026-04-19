@@ -1118,6 +1118,54 @@
         ]
       }
     },
+    "settings-and-api-keys": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/settings.ts",
+        "packages/app/src/state/storage.ts",
+        "packages/app/src/components/SettingsModal.tsx",
+        "packages/app/src/utils/tauri.ts",
+        "packages/core/src/model/Settings.ts",
+        "packages/core/src/utils/getPluginConfig.ts",
+        "packages/node/src/api.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "settingsState",
+          "pluginSettings",
+          "pluginEnv",
+          "fillMissingSettingsFromEnvironmentVariables",
+          "getPluginConfig",
+          "openAiKey",
+          "apiKey",
+          "pullEnvironmentVariable",
+          "settings",
+          "and",
+          "api",
+          "keys",
+          "settings and api keys",
+          "state",
+          "storage",
+          "plugin",
+          "config",
+          "packages",
+          "components",
+          "SettingsModal",
+          "tauri",
+          "model",
+          "node"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*settings and api keys",
+          "settings and api keys.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*settings.*and.*api.*keys"
+        ]
+      }
+    },
     "subgraph-composition": {
       "type": "domain",
       "enforcement": "suggest",

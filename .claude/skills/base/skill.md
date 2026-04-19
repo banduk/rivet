@@ -23,6 +23,7 @@ TypeScript (strict, ESM) | React 18 + Jotai + Vite + Tauri | Yarn 4 PnP | Node.j
 - `yarn lint` — lint all packages
 - `yarn prettier:fix` — format all files
 - `yarn workspace @ironclad/rivet-core run test` — core tests via tsx
+- `yarn workspace @ironclad/rivet-core run watch` — tsc -b -w watch mode
 - `cd packages/core && npx tsx --test test/path/to/file.test.ts` — single test file
 
 ## Structure

@@ -22,15 +22,17 @@ You are working on the **app-executor sidecar** — a single-file Node.js server
 ## Key Files
 - `packages/app-executor/bin/executor.mts` — entire runtime: WebSocket server, message handling, plugin loading, processor lifecycle
 - `packages/app-executor/scripts/build-executor.mts` — esbuild bundle → pkg native binary; custom `resolveRivet` plugin remaps `@ironclad/rivet-*` to source
-- `packages/node/src/debugger.ts` — `RivetDebuggerServer` interface + WebSocket broadcast protocol
+- `packages/node/src/debugger.ts` — `RivetDebuggerServer` interface + WebSocket broadcast protocol; `currentDebuggerState` lives here
 - `packages/node/src/api.ts` — `createProcessor()` wrapping core; injects Node.js providers
+- `packages/app/src/hooks/useExecutorSidecar.ts` — spawns sidecar via `Command.sidecar('../../app-executor/dist/app-executor')`, retries on failure
 
 ## Key Concepts
 - **Single-file design:** All executor logic lives in `executor.mts` — no `src/` directory, no modules.
-- **Communication:** WebSocket only on port 21889 (`/internal` path); 21888 is the external debugger port — do not confuse them.
-- **Execution flow:** App sends `set-dynamic-data` (project + settings) → `run` (graphId + inputs) → executor broadcasts execution events → `done`/`abort`.
-- **Global state:** `currentDebuggerState` holds the last-uploaded `project` and `settings`; mutated by `set-dynamic-data` before each run.
-- **Plugin types:** `built-in` | `uri` | `package` — matched via `ts-pattern`; package plugins load from `~/.local/share/com.ironcladapp.rivet/plugins/`.
+- **Communication:** App connects to `ws://localhost:21889/internal` (sidecar); 21888 is the external/remote debugger port — do not confuse them.
+- **Execution flow:** App sends `set-dynamic-data` (project + settings) → `run` (graphId, inputs, optional `runToNodeIds`/`runFromNodeId`) → executor broadcasts events → `done`/`abort`.
+- **Global state:** `currentDebuggerState` (in `debugger.ts`) holds `uploadedProject` and `settings`; mutated by `set-dynamic-data` before each run.
+- **Plugin types:** `built-in` | `uri` | `package` — matched via `ts-pattern`; package plugins load from `~/.local/share/com.ironcladapp.rivet/plugins/` (Linux path; `getAppDataLocalPath()` handles all platforms).
+- **Inbound message types:** `set-dynamic-data`, `run`, `abort`, `pause`, `resume`, `user-input`, `preload`, `datasets:response`; plus raw `set-static-data:${id}:${value}` prefix.
 
 ## Critical Rules
 - `set-static-data` messages use a colon-delimited text format (`set-static-data:${id}:${value}`), not JSON — parse accordingly.

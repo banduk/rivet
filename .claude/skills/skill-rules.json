@@ -362,6 +362,50 @@
         ]
       }
     },
+    "execution-recording-and-playback": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/recording/ExecutionRecorder.ts",
+        "packages/core/src/recording/RecordedEvents.ts",
+        "packages/app/src/hooks/useLoadRecording.ts",
+        "packages/app/src/hooks/useSaveRecording.ts",
+        "packages/app/src/state/execution.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "ExecutionRecorder",
+          "replayRecording",
+          "loadedRecordingState",
+          "lastRecordingState",
+          "recordExecutionsState",
+          "SerializedRecording",
+          "execution",
+          "recording",
+          "and",
+          "playback",
+          "execution recording and playback",
+          "graph",
+          "executions",
+          "disk",
+          "replaying",
+          "packages",
+          "RecordedEvents",
+          "hooks",
+          "useLoadRecording",
+          "useSaveRecording",
+          "state"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*execution recording and playback",
+          "execution recording and playback.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*execution.*recording.*and.*playback"
+        ]
+      }
+    },
     "file-and-audio-io": {
       "type": "domain",
       "enforcement": "suggest",

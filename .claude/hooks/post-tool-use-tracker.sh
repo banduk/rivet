@@ -243,6 +243,8 @@ detect_skill_domain() {
         detected_skills="dataset-management"
     elif [[ "$file" =~ /RaiseEventNode ]] || [[ "$file" =~ /WaitForEventNode ]]; then
         detected_skills="event-system"
+    elif [[ "$file" =~ /ExecutionRecorder ]] || [[ "$file" =~ /RecordedEvents ]] || [[ "$file" =~ /useLoadRecording ]] || [[ "$file" =~ /useSaveRecording ]] || [[ "$file" =~ /execution ]]; then
+        detected_skills="execution-recording-and-playback"
     elif [[ "$file" =~ /ReadFileNode ]] || [[ "$file" =~ /ReadDirectoryNode ]] || [[ "$file" =~ /AudioNode ]] || [[ "$file" =~ /PlayAudioNode ]] || [[ "$file" =~ /TauriBrowserAudioProvider ]]; then
         detected_skills="file-and-audio-io"
     elif [[ "$file" =~ /GetGlobalNode ]] || [[ "$file" =~ /SetGlobalNode ]]; then

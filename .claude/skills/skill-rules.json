@@ -1000,6 +1000,43 @@
         ]
       }
     },
+    "prompt-designer": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/PromptDesigner.tsx",
+        "packages/app/src/state/promptDesigner.ts",
+        "packages/app/src/hooks/useGetAdHocInternalProcessContext.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "promptDesigner",
+          "PromptDesignerRenderer",
+          "promptDesignerAttachedChatNodeState",
+          "runAdHocChat",
+          "useRunTestGroup",
+          "prompt",
+          "designer",
+          "prompt designer",
+          "overlay",
+          "ad-hoc",
+          "chat",
+          "packages",
+          "components",
+          "state",
+          "hooks",
+          "useGetAdHocInternalProcessContext"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*prompt designer",
+          "prompt designer.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*prompt.*designer"
+        ]
+      }
+    },
     "remote-debugger": {
       "type": "domain",
       "enforcement": "suggest",

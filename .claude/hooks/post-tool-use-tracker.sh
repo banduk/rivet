@@ -273,6 +273,8 @@ detect_skill_domain() {
         detected_skills="plugin-system"
     elif [[ "$file" =~ /savedGraphs ]] || [[ "$file" =~ /useLoadProject ]] || [[ "$file" =~ /useSaveProject ]] || [[ "$file" =~ /useNewProject ]] || [[ "$file" =~ /useLoadProjectWithFileBrowser ]] || [[ "$file" =~ /Project ]] || [[ "$file" =~ /serialization/ ]]; then
         detected_skills="project-management"
+    elif [[ "$file" =~ /PromptDesigner ]] || [[ "$file" =~ /promptDesigner ]] || [[ "$file" =~ /useGetAdHocInternalProcessContext ]]; then
+        detected_skills="prompt-designer"
     elif [[ "$file" =~ /debugger ]] || [[ "$file" =~ /useRemoteDebugger ]] || [[ "$file" =~ /useRemoteExecutor ]] || [[ "$file" =~ /DebuggerConnectPanel ]] || [[ "$file" =~ /execution ]]; then
         detected_skills="remote-debugger"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then

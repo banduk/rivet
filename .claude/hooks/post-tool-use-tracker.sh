@@ -279,6 +279,8 @@ detect_skill_domain() {
         detected_skills="remote-debugger"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then
         detected_skills="subgraph-composition"
+    elif [[ "$file" =~ /trivet/ ]] || [[ "$file" =~ /trivet ]] || [[ "$file" =~ /useTestSuite ]]; then
+        detected_skills="trivet-testing-framework"
     elif [[ "$file" =~ /commands/ ]]; then
         detected_skills="undo-redo-command-system"
     elif [[ "$file" =~ /UserInputNode ]] || [[ "$file" =~ /UserInputModal ]] || [[ "$file" =~ /userInput ]]; then

@@ -1122,6 +1122,46 @@
         ]
       }
     },
+    "trivet-testing-framework": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/trivet/src/**",
+        "packages/app/src/state/trivet.ts",
+        "packages/app/src/hooks/useTestSuite.ts",
+        "packages/app/src/components/trivet/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "TrivetTestSuite",
+          "TrivetTestCase",
+          "runTrivet",
+          "TrivetOpts",
+          "validationGraph",
+          "trivetTypes",
+          "trivet",
+          "testing",
+          "framework",
+          "trivet testing framework",
+          "graph-output",
+          "rivet",
+          "test",
+          "packages",
+          "state",
+          "hooks",
+          "useTestSuite",
+          "components"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*trivet testing framework",
+          "trivet testing framework.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*trivet.*testing.*framework"
+        ]
+      }
+    },
     "undo-redo-command-system": {
       "type": "domain",
       "enforcement": "suggest",

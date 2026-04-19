@@ -275,6 +275,8 @@ detect_skill_domain() {
         detected_skills="node-clipboard-copy-paste"
     elif [[ "$file" =~ /editors/ ]] || [[ "$file" =~ /EditorDefinition ]]; then
         detected_skills="node-property-editors"
+    elif [[ "$file" =~ /node/ ]] || [[ "$file" =~ /bin/ ]] || [[ "$file" =~ /app-executor/ ]]; then
+        detected_skills="nodejs-runtime"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /DataValue ]] || [[ "$file" =~ /commands/ ]] || [[ "$file" =~ /state/ ]] || [[ "$file" =~ /bundle.esbuild ]]; then
         detected_skills="packages"
     elif [[ "$file" =~ /plugins/ ]] || [[ "$file" =~ /RivetPlugin ]] || [[ "$file" =~ /NodeDefinition ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /NodeRegistration ]] || [[ "$file" =~ /useProjectPlugins ]] || [[ "$file" =~ /plugins ]]; then

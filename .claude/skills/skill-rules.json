@@ -1026,6 +1026,41 @@
         ]
       }
     },
+    "nodejs-runtime": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/node/src/**",
+        "packages/app-executor/bin/**",
+        "packages/app-executor/scripts/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "NodeNativeApi",
+          "NodeMCPProvider",
+          "NodeDatasetProvider",
+          "NodeCodeRunner",
+          "createProcessor",
+          "startDebuggerServer",
+          "app-executor",
+          "runGraph",
+          "nodejs",
+          "runtime",
+          "nodejs runtime",
+          "node",
+          "packages",
+          "bin"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*nodejs runtime",
+          "nodejs runtime.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*nodejs.*runtime"
+        ]
+      }
+    },
     "packages": {
       "type": "domain",
       "enforcement": "suggest",

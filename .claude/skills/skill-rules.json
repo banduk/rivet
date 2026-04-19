@@ -870,6 +870,50 @@
         ]
       }
     },
+    "node-clipboard-copy-paste": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/clipboard.ts",
+        "packages/app/src/hooks/useCopyNodes.ts",
+        "packages/app/src/hooks/usePasteNodes.ts",
+        "packages/app/src/hooks/useCopyNodesHotkeys.ts",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "clipboardState",
+          "useCopyNodes",
+          "usePasteNodes",
+          "NodesClipboardItem",
+          "pasteNodes",
+          "copyNodes",
+          "node",
+          "clipboard",
+          "copy",
+          "paste",
+          "node clipboard copy paste",
+          "copy/paste",
+          "duplicate",
+          "nodes",
+          "graph",
+          "canvas",
+          "packages",
+          "state",
+          "hooks",
+          "useCopyNodesHotkeys",
+          "useGraphBuilderContextMenuHandler"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node clipboard copy paste",
+          "node clipboard copy paste.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node.*clipboard.*copy.*paste"
+        ]
+      }
+    },
     "node-property-editors": {
       "type": "domain",
       "enforcement": "suggest",

@@ -267,6 +267,8 @@ detect_skill_domain() {
         detected_skills="llm-provider-plugins"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /mcp/ ]] || [[ "$file" =~ /ProjectMCPConfiguration ]]; then
         detected_skills="mcp-integration"
+    elif [[ "$file" =~ /clipboard ]] || [[ "$file" =~ /useCopyNodes ]] || [[ "$file" =~ /usePasteNodes ]] || [[ "$file" =~ /useCopyNodesHotkeys ]] || [[ "$file" =~ /useGraphBuilderContextMenuHandler ]]; then
+        detected_skills="node-clipboard-copy-paste"
     elif [[ "$file" =~ /editors/ ]] || [[ "$file" =~ /EditorDefinition ]]; then
         detected_skills="node-property-editors"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /DataValue ]] || [[ "$file" =~ /commands/ ]] || [[ "$file" =~ /state/ ]] || [[ "$file" =~ /bundle.esbuild ]]; then

@@ -488,6 +488,59 @@
         ]
       }
     },
+    "graph-history-and-versioning": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/commands/*.ts",
+        "packages/app/src/hooks/useGraphRevisions.ts",
+        "packages/app/src/hooks/useGraphHistoryNavigation.ts",
+        "packages/app/src/hooks/useChooseHistoricalGraph.ts",
+        "packages/app/src/hooks/useHistoricalNodeChangeInfo.ts",
+        "packages/app/src/utils/ProjectRevisionCalculator.ts",
+        "packages/app/src/components/GraphRevisionList.tsx",
+        "packages/app/src/components/NodeChangesModal.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "historicalGraphState",
+          "commandHistoryStackStatePerGraph",
+          "useUndo",
+          "useRedo",
+          "useCommand",
+          "CalculatedRevision",
+          "viewingNodeChangesState",
+          "graphNavigationStackState",
+          "graph",
+          "history",
+          "and",
+          "versioning",
+          "graph history and versioning",
+          "undo/redo",
+          "command",
+          "git-based",
+          "packages",
+          "commands",
+          "hooks",
+          "useGraphRevisions",
+          "useGraphHistoryNavigation",
+          "useChooseHistoricalGraph",
+          "useHistoricalNodeChangeInfo",
+          "ProjectRevisionCalculator",
+          "components",
+          "GraphRevisionList",
+          "NodeChangesModal"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph history and versioning",
+          "graph history and versioning.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*history.*and.*versioning"
+        ]
+      }
+    },
     "graph-search": {
       "type": "domain",
       "enforcement": "suggest",

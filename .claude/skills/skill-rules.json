@@ -488,6 +488,45 @@
         ]
       }
     },
+    "graph-search": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useSearchGraph.ts",
+        "packages/app/src/hooks/useSearchProject.ts",
+        "packages/app/src/hooks/useFuseSearch.ts",
+        "packages/app/src/components/NavigationBar.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "useFuseSearch",
+          "useSearchGraph",
+          "useSearchProject",
+          "searchingGraphState",
+          "goToSearchState",
+          "searchMatchingNodeIds",
+          "graph",
+          "search",
+          "graph search",
+          "fuzzy",
+          "node",
+          "within",
+          "single",
+          "packages",
+          "hooks",
+          "components",
+          "NavigationBar"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph search",
+          "graph search.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*search"
+        ]
+      }
+    },
     "http-client-node": {
       "type": "domain",
       "enforcement": "suggest",

@@ -249,6 +249,8 @@ detect_skill_domain() {
         detected_skills="global-variables"
     elif [[ "$file" =~ /GraphProcessor ]] || [[ "$file" =~ /ProcessContext ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /NodeRegistration ]] || [[ "$file" =~ /Nodes ]]; then
         detected_skills="graph-execution-engine"
+    elif [[ "$file" =~ /useSearchGraph ]] || [[ "$file" =~ /useSearchProject ]] || [[ "$file" =~ /useFuseSearch ]] || [[ "$file" =~ /NavigationBar ]]; then
+        detected_skills="graph-search"
     elif [[ "$file" =~ /HttpCallNode ]]; then
         detected_skills="http-client-node"
     elif [[ "$file" =~ /ChatNode ]] || [[ "$file" =~ /ChatLoopNode ]] || [[ "$file" =~ /ChatNodeBase ]] || [[ "$file" =~ /AssemblePromptNode ]] || [[ "$file" =~ /AssembleMessageNode ]] || [[ "$file" =~ /TrimChatMessagesNode ]]; then

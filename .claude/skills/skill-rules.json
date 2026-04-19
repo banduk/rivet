@@ -181,6 +181,45 @@
         ]
       }
     },
+    "community-template-platform": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/community/**",
+        "packages/app/src/hooks/useUploadNewTemplate*.ts",
+        "packages/app/src/hooks/useNewProjectFromTemplate.ts",
+        "packages/app/src/utils/communityApi.ts",
+        "packages/community/src/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "CommunityOverlay",
+          "RivetTemplateId",
+          "useUploadNewTemplate",
+          "community-profile",
+          "my-templates",
+          "community",
+          "template",
+          "platform",
+          "community template platform",
+          "sharing",
+          "frontend",
+          "packages",
+          "components",
+          "hooks",
+          "useNewProjectFromTemplate",
+          "communityApi"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*community template platform",
+          "community template platform.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*community.*template.*platform"
+        ]
+      }
+    },
     "control-flow": {
       "type": "domain",
       "enforcement": "suggest",

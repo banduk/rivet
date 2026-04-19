@@ -235,6 +235,8 @@ detect_skill_domain() {
         detected_skills="auto-layout"
     elif [[ "$file" =~ /CodeNode ]] || [[ "$file" =~ /CodeRunner ]] || [[ "$file" =~ /CodeNodeAIAssistEditor ]]; then
         detected_skills="code-execution-node"
+    elif [[ "$file" =~ /community/ ]] || [[ "$file" =~ /hooks/ ]] || [[ "$file" =~ /useNewProjectFromTemplate ]] || [[ "$file" =~ /communityApi ]]; then
+        detected_skills="community-template-platform"
     elif [[ "$file" =~ /IfElseNode ]] || [[ "$file" =~ /IfNode ]] || [[ "$file" =~ /LoopControllerNode ]] || [[ "$file" =~ /LoopUntilNode ]] || [[ "$file" =~ /RaceInputsNode ]] || [[ "$file" =~ /AbortGraphNode ]]; then
         detected_skills="control-flow"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /FilterNode ]] || [[ "$file" =~ /ChunkNode ]] || [[ "$file" =~ /SplitNode ]] || [[ "$file" =~ /SliceNode ]]; then

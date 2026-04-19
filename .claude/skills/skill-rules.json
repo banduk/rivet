@@ -488,6 +488,57 @@
         ]
       }
     },
+    "graph-execution-ui": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/dataFlow.ts",
+        "packages/app/src/state/execution.ts",
+        "packages/app/src/hooks/useGraphExecutor.ts",
+        "packages/app/src/hooks/useLocalExecutor.ts",
+        "packages/app/src/hooks/useRemoteExecutor.ts",
+        "packages/app/src/hooks/useCurrentExecution.ts",
+        "packages/app/src/components/ActionBar.tsx",
+        "packages/app/src/components/NodeOutput.tsx",
+        "packages/app/src/components/GraphExecutionSelectorBar.tsx",
+        "packages/app/src/components/VisualNode.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "graphRunningState",
+          "lastRunDataByNodeState",
+          "useGraphExecutor",
+          "useLocalExecutor",
+          "useCurrentExecution",
+          "ProcessDataForNode",
+          "splitOutputData",
+          "selectedProcessPage",
+          "graph",
+          "execution",
+          "graph execution",
+          "state",
+          "node",
+          "status",
+          "packages",
+          "dataFlow",
+          "hooks",
+          "useRemoteExecutor",
+          "components",
+          "ActionBar",
+          "NodeOutput",
+          "GraphExecutionSelectorBar",
+          "VisualNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph execution",
+          "graph execution.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*execution.*ui"
+        ]
+      }
+    },
     "graph-history-and-versioning": {
       "type": "domain",
       "enforcement": "suggest",

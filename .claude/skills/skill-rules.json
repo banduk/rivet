@@ -869,6 +869,48 @@
         ]
       }
     },
+    "remote-debugger": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/node/src/debugger.ts",
+        "packages/app/src/hooks/useRemoteDebugger.ts",
+        "packages/app/src/hooks/useRemoteExecutor.ts",
+        "packages/app/src/components/DebuggerConnectPanel.tsx",
+        "packages/app/src/state/execution.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "startDebuggerServer",
+          "useRemoteDebugger",
+          "RivetDebuggerServer",
+          "remoteDebuggerState",
+          "setCurrentDebuggerMessageHandler",
+          "remote",
+          "debugger",
+          "remote debugger",
+          "websocket",
+          "protocol",
+          "server",
+          "packages",
+          "node",
+          "hooks",
+          "useRemoteExecutor",
+          "components",
+          "DebuggerConnectPanel",
+          "state",
+          "execution"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*remote debugger",
+          "remote debugger.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*remote.*debugger"
+        ]
+      }
+    },
     "subgraph-composition": {
       "type": "domain",
       "enforcement": "suggest",

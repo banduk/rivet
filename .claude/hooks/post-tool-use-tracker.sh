@@ -267,6 +267,8 @@ detect_skill_domain() {
         detected_skills="packages"
     elif [[ "$file" =~ /savedGraphs ]] || [[ "$file" =~ /useLoadProject ]] || [[ "$file" =~ /useSaveProject ]] || [[ "$file" =~ /useNewProject ]] || [[ "$file" =~ /useLoadProjectWithFileBrowser ]] || [[ "$file" =~ /Project ]] || [[ "$file" =~ /serialization/ ]]; then
         detected_skills="project-management"
+    elif [[ "$file" =~ /debugger ]] || [[ "$file" =~ /useRemoteDebugger ]] || [[ "$file" =~ /useRemoteExecutor ]] || [[ "$file" =~ /DebuggerConnectPanel ]] || [[ "$file" =~ /execution ]]; then
+        detected_skills="remote-debugger"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then
         detected_skills="subgraph-composition"
     elif [[ "$file" =~ /commands/ ]]; then

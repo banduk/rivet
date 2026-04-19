@@ -79,6 +79,46 @@
         ]
       }
     },
+    "app-executor-sidecar": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app-executor/bin/executor.mts",
+        "packages/app-executor/scripts/build-executor.mts",
+        "packages/node/src/debugger.ts",
+        "packages/node/src/api.ts",
+        "packages/app/src/hooks/useExecutorSidecar.ts",
+        "packages/app/src/hooks/useRemoteExecutor.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "app-executor",
+          "RivetDebuggerServer",
+          "set-dynamic-data",
+          "executor-bundle",
+          "sidecar",
+          "app",
+          "executor",
+          "app executor sidecar",
+          "node",
+          "packages",
+          "bin",
+          "build-executor",
+          "debugger",
+          "hooks",
+          "useExecutorSidecar",
+          "useRemoteExecutor"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*app executor sidecar",
+          "app executor sidecar.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*app.*executor.*sidecar"
+        ]
+      }
+    },
     "auto-layout": {
       "type": "domain",
       "enforcement": "suggest",

@@ -486,6 +486,41 @@
         ]
       }
     },
+    "node-property-editors": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/components/editors/**",
+        "packages/core/src/model/EditorDefinition.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "EditorDefinition",
+          "DefaultNodeEditor",
+          "SharedEditorProps",
+          "getEditors",
+          "dataKey",
+          "useInputToggleDataKey",
+          "node",
+          "property",
+          "editors",
+          "node property editors",
+          "editor",
+          "components",
+          "inputs",
+          "packages",
+          "model"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node property editors",
+          "node property editors.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*node.*property.*editors"
+        ]
+      }
+    },
     "packages": {
       "type": "domain",
       "enforcement": "suggest",

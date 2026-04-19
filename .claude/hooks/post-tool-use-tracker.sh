@@ -249,6 +249,8 @@ detect_skill_domain() {
         detected_skills="llm-chat-nodes"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /mcp/ ]] || [[ "$file" =~ /ProjectMCPConfiguration ]]; then
         detected_skills="mcp-integration"
+    elif [[ "$file" =~ /editors/ ]] || [[ "$file" =~ /EditorDefinition ]]; then
+        detected_skills="node-property-editors"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /DataValue ]] || [[ "$file" =~ /commands/ ]] || [[ "$file" =~ /state/ ]] || [[ "$file" =~ /bundle.esbuild ]]; then
         detected_skills="packages"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then

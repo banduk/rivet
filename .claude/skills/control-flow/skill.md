@@ -23,11 +23,13 @@ Keywords: control-flow-excluded, loopController, loopUntil, raceInputs, abortGra
 
 - **LoopController vs LoopUntil:** `LoopControllerNode` runs within the same graph (uses `context.attachedData.loopInfo.iterationCount` for iteration tracking; GraphProcessor owns the cycle). `LoopUntilNode` calls a subgraph each iteration via `context.createSubProcessor(graphId, { signal })` and manages the loop itself in `process()`.
 
-- **Dynamic ports:** Both `LoopControllerNode` and `RaceInputsNode` compute port counts by scanning `connections` for `inputN`-prefixed connections. `getInputDefinitions` and `getOutputDefinitions` both receive `connections` — use `#getInputPortCount(connections)` private helper pattern.
+- **Dynamic ports:** `LoopControllerNode` and `RaceInputsNode` compute port counts by scanning `connections` for `inputN`-prefixed connections. `getInputDefinitions` and `getOutputDefinitions` both receive `connections` — use `#getInputPortCount(connections)` private helper pattern. `LoopUntilNode` ports are instead derived from the target graph's `GraphInputNode`/`GraphOutputNode` definitions (scans `project.graphs[targetGraph].nodes`).
 
 - **LoopController default inputs:** Each loop variable has an `inputN` port (from loop body) and `inputNDefault` port (initial value). If any `Default` input is `control-flow-excluded`, the whole node outputs `control-flow-excluded` — this is how the loop detects it's being initialized vs. running.
 
-- **LoopUntil subgraph:** Each iteration's outputs become inputs for the next (`currentInputs = lastOutputs`). Static input defaults from `this.data.inputData` only fill in `undefined` ports on first call.
+- **LoopController break output:** When continuing, `break` emits `{ type: 'control-flow-excluded', value: 'loop-not-broken' }`. When breaking, `break` emits `{ type: 'any[]', value: [...inputValues] }` — an array of all loop variable values.
+
+- **LoopUntil stop conditions:** `conditionType: 'allOutputsSet'` breaks when no output is `control-flow-excluded`. `conditionType: 'inputEqual'` breaks when `outputs[inputToCheck].value.toString() === targetValue`. Static `this.data.inputData` defaults only fill `undefined` ports on first call; subsequent iterations use `currentInputs = lastOutputs`.
 
 - **AbortGraph:** Calls `context.abortGraph()` (success, early-exit) or `context.abortGraph(errorMessage)` (error). Returns empty `Outputs` — no output ports exist on this node.
 
@@ -38,7 +40,7 @@ Keywords: control-flow-excluded, loopController, loopUntil, raceInputs, abortGra
 - Never return `undefined` for a port that should be excluded — always return `{ type: 'control-flow-excluded', value: undefined }`.
 - `LoopControllerNode.process()` reads iteration count from `context.attachedData.loopInfo?.iterationCount ?? 0` — do not track iterations in node state.
 - `LoopUntilNode` must pass `{ signal: context.signal }` to `createSubProcessor` so abort propagates into iterations.
-- `LoopController` emits `{ type: 'control-flow-excluded', value: 'loop-not-broken' }` on the `break` port when continuing — the string value distinguishes it from a regular exclusion.
+- `LoopController` `atMaxIterationsAction` defaults to `'error'`; only set it to `'break'` when `data.atMaxIterationsAction === 'break'` is explicitly checked.
 
 ## References
 - **Patterns:** `.claude/guidelines/packages/patterns.md`

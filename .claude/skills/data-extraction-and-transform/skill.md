@@ -18,7 +18,10 @@ Keywords: extractJson, extractRegex, extractObjectPath, extractYaml, FilterNode,
 
 ## No-Match Output Pattern
 
-When extraction fails, emit `control-flow-excluded` on the "found" port and the original input on the "no match" port — **not** an error. Both ports must always be present in the returned `Outputs` object even when one is excluded.
+Two patterns exist — pick the right one per node type:
+
+- **Object/JSON/YAML extraction**: emit `control-flow-excluded` on the "found" port and the original input on the "no match" port. Both ports must always be present in the returned `Outputs` object.
+- **ExtractRegexNode**: emits `{ succeeded: false, failed: true }` on match failure — no `control-flow-excluded`. The `outputX` capture-group ports are simply absent from the returned object when there's no match.
 
 ## expectType vs coerceType
 
@@ -37,6 +40,10 @@ When extraction fails, emit `control-flow-excluded` on the "found" port and the 
 ## JSONPath (ExtractObjectPathNode / ExtractYamlNode)
 
 Uses `jsonpath-plus`: `JSONPath({ json, path, wrap: true })` — `wrap: true` always returns an array; empty array means no match. Pass `inputObject ?? null` because JSONPath doesn't handle `undefined`.
+
+## ExtractJsonNode Fuzzy Parse
+
+After `JSON.parse` fails, the node tries a fuzzy extraction: finds the first `{` or `[` and the last `}` or `]` and parses the substring. Only returns `noMatch` if that also fails. New extraction nodes should follow the same try-fuzzy-then-fail pattern when parsing LLM output.
 
 ## ChunkNode Requires Tokenizer
 

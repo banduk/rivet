@@ -21,21 +21,23 @@ Keywords: CodeNode, CodeNodeData, CodeRunner, IsomorphicCodeRunner, runCode, cod
 
 ## Key Concepts
 
-- **Port names are masked:** `maskInput` strips non-`[a-zA-Z0-9_]` chars and deduplicates via `Set`. Port `id` in `getInputDefinitions`/`getOutputDefinitions` equals the masked name — the `inputs` object inside user code uses those same masked keys.
-- **`inputs` are raw `DataValue` tagged unions** inside the code body — user must access `.type` and `.value` directly. Values are NOT unwrapped by the runtime before passing.
-- **`process()` validates return shape** — all declared output port IDs must be present in the returned object or it throws. To skip an output use `{ type: 'control-flow-excluded', value: undefined }`; to return undefined use `{ type: 'any', value: undefined }`.
-- **Execution is `new AsyncFunction(...argNames)(...)`.** Only explicitly enabled capabilities (`includeFetch`, `includeConsole`, etc.) are injected as named args — others are simply absent from the function scope.
-- **`require` and `process` only work in the Node executor** — `IsomorphicCodeRunner` throws immediately if either flag is set. The browser executor uses `IsomorphicCodeRunner`; never assume `require` is available.
-- **`Rivet` import causes a cycle** — `CodeRunner.ts` suppresses it with `eslint-disable-next-line import/no-cycle`. Do not add more cyclic imports here.
+- **Port names are masked:** `maskInput` at line 19 replaces non-`[a-zA-Z0-9_]` chars with `_` and deduplicates via `Set`. Port `id` equals the masked name — user code accesses `inputs` via those same masked keys.
+- **`inputs` are raw `DataValue` tagged unions** inside user code — access `.type` and `.value` directly; runtime does NOT unwrap them.
+- **`process()` validates return shape** — all declared output port IDs must be present or it throws. Skip an output with `{ type: 'control-flow-excluded', value: undefined }`; return undefined with `{ type: 'any', value: undefined }`.
+- **Execution is `new AsyncFunction(...argNames)(...)`.** Only enabled capabilities (`includeFetch`, `includeConsole`, `includeRivet`) are injected as named args. `graphInputs` and `context` (contextValues) are always injected if provided.
+- **`require` and `process` only work in the Node executor** — `IsomorphicCodeRunner` throws immediately for either flag; `NotAllowedCodeRunner` rejects all execution.
+- **`Rivet` arg is the full `../exports.js` namespace** (circular import allowed via eslint disable comment) — available when `includeRivet` is true.
+
+## AI Assist Editor
+
+- `CodeNodeAIAssistEditor` uses graph name `"Code Node Generator"` (maps to `code-node-generator.rivet-project`).
+- AI outputs: `code` (string) + `configuration` (object with `inputs`, `outputs`, `allowFetch`, `allowRequire`, `allowProcess`, `allowRivet`). Note: `allowConsole` is NOT set by AI generation.
+- `updateData` returns `null` (no update) if `code` output is missing; `getIsError` checks for `control-flow-excluded` on the `code` output.
 
 ## Critical Rules
-- Return object must include every declared output port or `process()` throws — no partial returns.
-- `inputNames`/`outputNames` can be `string | string[]` — always normalize with `Array.isArray` before iterating (the node does this in `getInputDefinitions`).
-- AI-assist editor calls `graphName: "Code Node Generator"` — that string must match the deployed graph name; changing it silently breaks AI generation.
-- New `CodeRunnerOptions` flags require updates in **both** `CodeNode.ts` (data type + editor + `process()` call) and `CodeRunner.ts` (both `IsomorphicCodeRunner` and `NotAllowedCodeRunner`).
-
-## References
-- **Patterns:** `.claude/guidelines/code-execution-node/patterns.md`
+- Never return a Promise from user code — `process()` checks `'then' in outputs` and throws if truthy.
+- `inputNames`/`outputNames` can be `string | string[]` — always normalize with `Array.isArray` before processing.
+- Adding a new capability flag: add to `CodeNodeData`, `CodeRunnerOptions`, `getEditors()`, and both `IsomorphicCodeRunner.runCode` and the Node executor's runner.
 
 ---
 **Last Updated:** 2026-04-19

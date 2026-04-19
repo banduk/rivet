@@ -21,11 +21,11 @@ You are working on the **context menu system** in Rivet's graph canvas. There is
 
 ## Key Files
 - `packages/app/src/components/ContextMenu.tsx` — Renders menu with search (Fuse.js), submenus, info boxes, and keyboard nav; uses `@floating-ui/react` for placement
-- `packages/app/src/hooks/useContextMenu.ts` — Manages open/close state; provides `handleContextMenu(event)` and escape-key listener
-- `packages/app/src/hooks/useContextMenuConfiguration.ts` — Defines all menu contexts (`node`, `blankArea`, `graphList`, `graphListGraph`) and their items
+- `packages/app/src/hooks/useContextMenu.ts` — Manages open/close state; provides `handleContextMenu(event)`, escape-key, and outside-click listeners
+- `packages/app/src/hooks/useContextMenuConfiguration.ts` — Defines all menu contexts (`node`, `blankArea`, `graphList`, `graphListGraph`) and their items; `graphList`/`graphListGraph` have empty item arrays (reserved for external use)
 - `packages/app/src/hooks/useContextMenuAddNodeConfiguration.ts` — Builds the categorized "Add Node" submenu dynamically from registered node types
 - `packages/app/src/hooks/useContextMenuCommands.ts` — Generates global `go-to-graph:<graphId>` commands shown in search
-- `packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts` — Single dispatcher; uses `ts-pattern` to match item IDs and execute canvas actions
+- `packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts` — Single dispatcher; uses `ts-pattern` to match item IDs; accepts `{ onAutoLayoutGraph }` injected by the caller; returns a `useStableCallback`
 
 ## Key Concepts
 - **DOM trigger via `data-contextmenutype`:** Elements set `data-contextmenutype="node"` (plus `data-nodeid`) to declare what context a right-click produces. The hook walks up the DOM tree to find the nearest typed element.
@@ -35,6 +35,7 @@ You are working on the **context menu system** in Rivet's graph canvas. There is
 - **`data` can be a function:** `data?: Data | ((context: Context) => Data)` — evaluated at dispatch time, enabling context-dependent payloads.
 - **`hiddenUntilSearched: true`:** Items like "Auto Layout" only appear in Fuse.js search results, not in the default rendered list.
 - **`conditional?: (context) => boolean`:** Hides items from rendering entirely (not just greyed out). Used for "Run from here", "Go to subgraph", etc.
+- **Delete toast for subgraph references:** `node-delete` checks if the node is `graphInput`/`graphOutput`; if other graphs contain SubGraphNodes pointing to this graph, a `toast.warn` with `ToastDeleteNodeConfirm` is shown before deletion proceeds.
 
 ## Critical Rules
 - Add new context menu items in `useContextMenuConfiguration.ts` and handle them in `useGraphBuilderContextMenuHandler.ts` — both must be updated together.

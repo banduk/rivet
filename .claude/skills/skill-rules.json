@@ -19,6 +19,441 @@
         "intentPatterns": []
       }
     },
+    "code-execution-node": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/CodeNode.ts",
+        "packages/core/src/integrations/CodeRunner.ts",
+        "packages/app/src/components/editors/custom/CodeNodeAIAssistEditor.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "CodeNode",
+          "CodeNodeData",
+          "CodeRunner",
+          "IsomorphicCodeRunner",
+          "runCode",
+          "allowFetch",
+          "allowRequire",
+          "allowRivet",
+          "allowProcess",
+          "allowConsole",
+          "code",
+          "execution",
+          "node",
+          "code execution node",
+          "sandboxed",
+          "interface",
+          "packages",
+          "model",
+          "nodes",
+          "integrations",
+          "components",
+          "editors",
+          "custom",
+          "CodeNodeAIAssistEditor"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*code execution node",
+          "code execution node.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*code.*execution.*node"
+        ]
+      }
+    },
+    "control-flow": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/IfElseNode.ts",
+        "packages/core/src/model/nodes/IfNode.ts",
+        "packages/core/src/model/nodes/LoopControllerNode.ts",
+        "packages/core/src/model/nodes/LoopUntilNode.ts",
+        "packages/core/src/model/nodes/RaceInputsNode.ts",
+        "packages/core/src/model/nodes/AbortGraphNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "control-flow-excluded",
+          "loopController",
+          "loopUntil",
+          "raceInputs",
+          "abortGraph",
+          "continueValue",
+          "iterationCount",
+          "attachedData",
+          "createSubProcessor",
+          "control",
+          "flow",
+          "control flow",
+          "control-flow",
+          "nodes",
+          "if/else",
+          "branching",
+          "loop-controller/loop-until",
+          "packages",
+          "model",
+          "IfElseNode",
+          "IfNode",
+          "LoopControllerNode",
+          "LoopUntilNode",
+          "RaceInputsNode",
+          "AbortGraphNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*control flow",
+          "control flow.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*control.*flow"
+        ]
+      }
+    },
+    "data-extraction-and-transform": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/Extract*.ts",
+        "packages/core/src/model/nodes/FilterNode.ts",
+        "packages/core/src/model/nodes/ChunkNode.ts",
+        "packages/core/src/model/nodes/SplitNode.ts",
+        "packages/core/src/model/nodes/SliceNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "extractJson",
+          "extractRegex",
+          "extractObjectPath",
+          "extractYaml",
+          "FilterNode",
+          "ChunkNode",
+          "SplitNode",
+          "coerceType",
+          "expectType",
+          "control-flow-excluded",
+          "data",
+          "extraction",
+          "and",
+          "transform",
+          "data extraction and transform",
+          "patterns",
+          "nodes",
+          "(json/yaml/regex/object-path)",
+          "packages",
+          "model",
+          "Extract",
+          "SliceNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*data extraction and transform",
+          "data extraction and transform.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*data.*extraction.*and.*transform"
+        ]
+      }
+    },
+    "dataset-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/*DatasetNode.ts",
+        "packages/core/src/model/nodes/DatasetNearestNeigborsNode.ts",
+        "packages/core/src/model/nodes/GetDatasetRowNode.ts",
+        "packages/core/src/model/nodes/GetAllDatasetsNode.ts",
+        "packages/core/src/model/nodes/ReplaceDatasetNode.ts",
+        "packages/core/src/integrations/DatasetProvider.ts",
+        "packages/app/src/state/dataStudio.ts",
+        "packages/app/src/components/dataStudio/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "DatasetProvider",
+          "DatasetRow",
+          "DatasetId",
+          "knnDatasetRows",
+          "datasetSelector",
+          "putDatasetRow",
+          "putDatasetMetadata",
+          "dataset",
+          "management",
+          "dataset management",
+          "crud",
+          "nodes",
+          "interface",
+          "packages",
+          "model",
+          "DatasetNode",
+          "DatasetNearestNeigborsNode",
+          "GetDatasetRowNode",
+          "GetAllDatasetsNode",
+          "ReplaceDatasetNode",
+          "integrations",
+          "state",
+          "dataStudio",
+          "components"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*dataset management",
+          "dataset management.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*dataset.*management"
+        ]
+      }
+    },
+    "event-system": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/RaiseEventNode.ts",
+        "packages/core/src/model/nodes/WaitForEventNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "raiseEvent",
+          "waitEvent",
+          "userEvent",
+          "WaitForEventNode",
+          "RaiseEventNodeImpl",
+          "InternalProcessContext",
+          "event",
+          "system",
+          "event system",
+          "pub/sub",
+          "coordination",
+          "concurrent",
+          "graph",
+          "packages",
+          "model",
+          "nodes",
+          "RaiseEventNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*event system",
+          "event system.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*event.*system"
+        ]
+      }
+    },
+    "file-and-audio-io": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/ReadFileNode.ts",
+        "packages/core/src/model/nodes/ReadDirectoryNode.ts",
+        "packages/core/src/model/nodes/AudioNode.ts",
+        "packages/core/src/model/nodes/PlayAudioNode.ts",
+        "packages/app/src/io/TauriBrowserAudioProvider.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "nativeApi",
+          "audioProvider",
+          "readTextFile",
+          "readBinaryFile",
+          "readdir",
+          "DataRef",
+          "base64ToUint8Array",
+          "playAudio",
+          "file",
+          "and",
+          "audio",
+          "file and audio",
+          "reading",
+          "playback",
+          "nodes",
+          "packages",
+          "model",
+          "ReadFileNode",
+          "ReadDirectoryNode",
+          "AudioNode",
+          "PlayAudioNode",
+          "TauriBrowserAudioProvider"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*file and audio",
+          "file and audio.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*file.*and.*audio.*io"
+        ]
+      }
+    },
+    "global-variables": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/GetGlobalNode.ts",
+        "packages/core/src/model/nodes/SetGlobalNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "getGlobal",
+          "setGlobal",
+          "waitForGlobal",
+          "onDemand",
+          "GetGlobalNode",
+          "SetGlobalNode",
+          "global variable",
+          "global",
+          "variables",
+          "global variables",
+          "getglobal/setglobal",
+          "nodes",
+          "shared",
+          "key-value",
+          "state",
+          "packages",
+          "model"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*global variable",
+          "global variable.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*global variables",
+          "global variables.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*global.*variables"
+        ]
+      }
+    },
+    "graph-execution-engine": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/GraphProcessor.ts",
+        "packages/core/src/model/ProcessContext.ts",
+        "packages/core/src/model/NodeImpl.ts",
+        "packages/core/src/model/NodeRegistration.ts",
+        "packages/core/src/model/Nodes.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "GraphProcessor",
+          "processGraph",
+          "InternalProcessContext",
+          "control-flow-excluded",
+          "loopController",
+          "createSubProcessor",
+          "splitRun",
+          "NodeRegistration",
+          "graph",
+          "execution",
+          "engine",
+          "graph execution engine",
+          "model",
+          "control",
+          "flow",
+          "packages",
+          "ProcessContext",
+          "NodeImpl",
+          "Nodes"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph execution engine",
+          "graph execution engine.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*graph.*execution.*engine"
+        ]
+      }
+    },
+    "llm-chat-nodes": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/ChatNode.ts",
+        "packages/core/src/model/nodes/ChatLoopNode.ts",
+        "packages/core/src/model/nodes/ChatNodeBase.ts",
+        "packages/core/src/model/nodes/AssemblePromptNode.ts",
+        "packages/core/src/model/nodes/AssembleMessageNode.ts",
+        "packages/core/src/model/nodes/TrimChatMessagesNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "ChatNodeBase",
+          "ChatNodeData",
+          "ChatNodeConfigData",
+          "AssemblePromptNode",
+          "AssembleMessageNode",
+          "chatCompletions",
+          "streamChatCompletions",
+          "isCacheBreakpoint",
+          "llm",
+          "chat",
+          "nodes",
+          "llm chat nodes",
+          "chatnode",
+          "chatloopnode",
+          "packages",
+          "model",
+          "TrimChatMessagesNode"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm chat nodes",
+          "llm chat nodes.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm.*chat.*nodes"
+        ]
+      }
+    },
+    "mcp-integration": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/MCP*.ts",
+        "packages/core/src/integrations/mcp/*.ts",
+        "packages/app/src/components/ProjectMCPConfiguration.tsx"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "MCPProvider",
+          "MCPBaseNodeData",
+          "mcpToolCall",
+          "mcpDiscovery",
+          "mcpGetPrompt",
+          "transportType",
+          "serverId",
+          "loadMCPConfiguration",
+          "mcp",
+          "integration",
+          "mcp integration",
+          "(model",
+          "context",
+          "protocol)",
+          "client",
+          "nodes",
+          "packages",
+          "model",
+          "integrations",
+          "components",
+          "ProjectMCPConfiguration"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*mcp integration",
+          "mcp integration.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*mcp.*integration"
+        ]
+      }
+    },
     "packages": {
       "type": "domain",
       "enforcement": "suggest",
@@ -55,6 +490,96 @@
           "bundle.esbuild"
         ],
         "intentPatterns": []
+      }
+    },
+    "subgraph-composition": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/SubGraphNode.ts",
+        "packages/core/src/model/nodes/CallGraphNode.ts",
+        "packages/core/src/model/nodes/GraphInputNode.ts",
+        "packages/core/src/model/nodes/GraphOutputNode.ts",
+        "packages/core/src/model/nodes/GraphReferenceNode.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "SubGraphNode",
+          "CallGraphNode",
+          "GraphInputNode",
+          "GraphOutputNode",
+          "GraphReferenceNode",
+          "createSubProcessor",
+          "graph-reference",
+          "graphId",
+          "graphInputs",
+          "graphOutputs",
+          "subgraph",
+          "composition",
+          "subgraph composition",
+          "callgraph",
+          "graphinput",
+          "graphoutput",
+          "graphreference",
+          "packages",
+          "model",
+          "nodes"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*subgraph composition",
+          "subgraph composition.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*subgraph.*composition"
+        ]
+      }
+    },
+    "vector-search-and-embeddings": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/VectorStoreNode.ts",
+        "packages/core/src/model/nodes/VectorNearestNeighborsNode.ts",
+        "packages/core/src/model/nodes/GetEmbeddingNode.ts",
+        "packages/core/src/integrations/EmbeddingGenerator.ts",
+        "packages/core/src/integrations/VectorDatabase.ts",
+        "packages/core/src/integrations/integrations.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "VectorDatabase",
+          "EmbeddingGenerator",
+          "getIntegration",
+          "registerIntegration",
+          "vectorStore",
+          "getEmbedding",
+          "vectorNearestNeighbors",
+          "VectorDataValue",
+          "vector",
+          "search",
+          "and",
+          "embeddings",
+          "vector search and embeddings",
+          "store",
+          "operations",
+          "nearest-neighbor",
+          "packages",
+          "model",
+          "nodes",
+          "VectorStoreNode",
+          "VectorNearestNeighborsNode",
+          "GetEmbeddingNode",
+          "integrations"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*vector search and embeddings",
+          "vector search and embeddings.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*vector.*search.*and.*embeddings"
+        ]
       }
     }
   }

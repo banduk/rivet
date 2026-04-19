@@ -567,6 +567,46 @@
         ]
       }
     },
+    "user-input-node": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/UserInputNode.ts",
+        "packages/app/src/components/UserInputModal.tsx",
+        "packages/app/src/components/nodes/UserInputNode.tsx",
+        "packages/app/src/state/userInput.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "userInput",
+          "UserInputNode",
+          "requestUserInput",
+          "userInputModal",
+          "questionsAndAnswers",
+          "user",
+          "input",
+          "node",
+          "user input node",
+          "implementation",
+          "modal",
+          "process",
+          "context",
+          "packages",
+          "model",
+          "nodes",
+          "components",
+          "state"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*user input node",
+          "user input node.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*user.*input.*node"
+        ]
+      }
+    },
     "vector-search-and-embeddings": {
       "type": "domain",
       "enforcement": "suggest",

@@ -261,6 +261,8 @@ detect_skill_domain() {
         detected_skills="node-property-editors"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /DataValue ]] || [[ "$file" =~ /commands/ ]] || [[ "$file" =~ /state/ ]] || [[ "$file" =~ /bundle.esbuild ]]; then
         detected_skills="packages"
+    elif [[ "$file" =~ /savedGraphs ]] || [[ "$file" =~ /useLoadProject ]] || [[ "$file" =~ /useSaveProject ]] || [[ "$file" =~ /useNewProject ]] || [[ "$file" =~ /useLoadProjectWithFileBrowser ]] || [[ "$file" =~ /Project ]] || [[ "$file" =~ /serialization/ ]]; then
+        detected_skills="project-management"
     elif [[ "$file" =~ /SubGraphNode ]] || [[ "$file" =~ /CallGraphNode ]] || [[ "$file" =~ /GraphInputNode ]] || [[ "$file" =~ /GraphOutputNode ]] || [[ "$file" =~ /GraphReferenceNode ]]; then
         detected_skills="subgraph-composition"
     elif [[ "$file" =~ /commands/ ]]; then

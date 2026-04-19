@@ -715,6 +715,56 @@
         "intentPatterns": []
       }
     },
+    "project-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/state/savedGraphs.ts",
+        "packages/app/src/hooks/useLoadProject.ts",
+        "packages/app/src/hooks/useSaveProject.ts",
+        "packages/app/src/hooks/useNewProject.ts",
+        "packages/app/src/hooks/useLoadProjectWithFileBrowser.ts",
+        "packages/core/src/model/Project.ts",
+        "packages/core/src/utils/serialization/**"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "projectState",
+          "loadedProjectState",
+          "projectDataState",
+          "serializeProject",
+          "deserializeProject",
+          "ProjectMetadata",
+          "mainGraphId",
+          "rivet-project",
+          "project",
+          "management",
+          "project management",
+          "loading",
+          "saving",
+          "managing",
+          "rivet",
+          "packages",
+          "state",
+          "savedGraphs",
+          "hooks",
+          "useLoadProject",
+          "useSaveProject",
+          "useNewProject",
+          "useLoadProjectWithFileBrowser",
+          "model",
+          "serialization"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*project management",
+          "project management.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*project.*management"
+        ]
+      }
+    },
     "subgraph-composition": {
       "type": "domain",
       "enforcement": "suggest",

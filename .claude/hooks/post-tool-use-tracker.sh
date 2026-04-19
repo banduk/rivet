@@ -261,6 +261,8 @@ detect_skill_domain() {
         detected_skills="http-client-node"
     elif [[ "$file" =~ /ChatNode ]] || [[ "$file" =~ /ChatLoopNode ]] || [[ "$file" =~ /ChatNodeBase ]] || [[ "$file" =~ /AssemblePromptNode ]] || [[ "$file" =~ /AssembleMessageNode ]] || [[ "$file" =~ /TrimChatMessagesNode ]]; then
         detected_skills="llm-chat-nodes"
+    elif [[ "$file" =~ /plugin.ts/ ]] || [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /index.ts/ ]] || [[ "$file" =~ /plugins ]]; then
+        detected_skills="llm-provider-plugins"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /mcp/ ]] || [[ "$file" =~ /ProjectMCPConfiguration ]]; then
         detected_skills="mcp-integration"
     elif [[ "$file" =~ /editors/ ]] || [[ "$file" =~ /EditorDefinition ]]; then

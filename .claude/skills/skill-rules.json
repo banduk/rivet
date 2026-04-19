@@ -748,6 +748,47 @@
         ]
       }
     },
+    "llm-provider-plugins": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/plugins/*/plugin.ts",
+        "packages/core/src/plugins/*/nodes/*.ts",
+        "packages/core/src/plugins/*/index.ts",
+        "packages/core/src/plugins.ts",
+        "packages/app/src/plugins.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "RivetPlugin",
+          "PluginNodeImpl",
+          "pluginNodeDefinition",
+          "configSpec",
+          "pullEnvironmentVariable",
+          "getPluginConfig",
+          "register",
+          "llm",
+          "provider",
+          "plugins",
+          "llm provider plugins",
+          "implementing",
+          "(nodes",
+          "config)",
+          "packages",
+          "plugin",
+          "nodes",
+          "index"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm provider plugins",
+          "llm provider plugins.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*llm.*provider.*plugins"
+        ]
+      }
+    },
     "mcp-integration": {
       "type": "domain",
       "enforcement": "suggest",

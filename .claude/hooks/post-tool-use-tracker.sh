@@ -247,6 +247,8 @@ detect_skill_domain() {
         detected_skills="event-system"
     elif [[ "$file" =~ /ExecutionRecorder ]] || [[ "$file" =~ /RecordedEvents ]] || [[ "$file" =~ /useLoadRecording ]] || [[ "$file" =~ /useSaveRecording ]] || [[ "$file" =~ /execution ]]; then
         detected_skills="execution-recording-and-playback"
+    elif [[ "$file" =~ /useFactorIntoSubgraph ]] || [[ "$file" =~ /useContextMenuConfiguration ]] || [[ "$file" =~ /useGraphBuilderContextMenuHandler ]]; then
+        detected_skills="factor-into-subgraph"
     elif [[ "$file" =~ /ReadFileNode ]] || [[ "$file" =~ /ReadDirectoryNode ]] || [[ "$file" =~ /AudioNode ]] || [[ "$file" =~ /PlayAudioNode ]] || [[ "$file" =~ /TauriBrowserAudioProvider ]]; then
         detected_skills="file-and-audio-io"
     elif [[ "$file" =~ /GetGlobalNode ]] || [[ "$file" =~ /SetGlobalNode ]]; then

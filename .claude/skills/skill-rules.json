@@ -445,6 +445,45 @@
         ]
       }
     },
+    "factor-into-subgraph": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/app/src/hooks/useFactorIntoSubgraph.ts",
+        "packages/app/src/hooks/useContextMenuConfiguration.ts",
+        "packages/app/src/hooks/useGraphBuilderContextMenuHandler.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "factor-into-subgraph",
+          "nodes-factor-into-subgraph",
+          "useFactorIntoSubgraph",
+          "Create Subgraph",
+          "factor",
+          "into",
+          "subgraph",
+          "factor into subgraph",
+          "extract",
+          "selected",
+          "nodes",
+          "auto-generated",
+          "packages",
+          "hooks",
+          "useContextMenuConfiguration",
+          "useGraphBuilderContextMenuHandler"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*Create Subgraph",
+          "Create Subgraph.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*factor into subgraph",
+          "factor into subgraph.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*factor.*into.*subgraph"
+        ]
+      }
+    },
     "file-and-audio-io": {
       "type": "domain",
       "enforcement": "suggest",

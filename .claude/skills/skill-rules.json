@@ -1,0 +1,61 @@
+{
+  "version": "2.0",
+  "skills": {
+    "base": {
+      "type": "base",
+      "enforcement": "suggest",
+      "priority": "critical",
+      "scope": "all",
+      "alwaysActivate": true,
+      "filePatterns": [],
+      "promptTriggers": {
+        "keywords": [
+          "core",
+          "conventions",
+          "tech",
+          "stack",
+          "project"
+        ],
+        "intentPatterns": []
+      }
+    },
+    "packages": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/model/nodes/*.ts",
+        "packages/core/src/model/NodeImpl.ts",
+        "packages/core/src/model/DataValue.ts",
+        "packages/app/src/commands/*.ts",
+        "packages/app/src/state/*.ts",
+        "packages/core/bundle.esbuild.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "NodeImpl",
+          "nodeDefinition",
+          "DataValue",
+          "ChartNode",
+          "GraphProcessor",
+          "useCommand",
+          "atomWithStorage",
+          "nodesState",
+          "packages",
+          "node",
+          "implementations",
+          "command",
+          "pattern",
+          "state",
+          "model",
+          "nodes",
+          "commands",
+          "bundle.esbuild"
+        ],
+        "intentPatterns": []
+      }
+    }
+  }
+}

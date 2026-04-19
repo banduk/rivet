@@ -41,3 +41,9 @@ packages/app-executor/bin/executor-bundle.cjs
 .idea
 
 packages/app/stats.html
+
+# aspens graph artifacts (generated — do not commit)
+.claude/graph.json
+.claude/graph-index.json
+.claude/code-map.md
+dev/

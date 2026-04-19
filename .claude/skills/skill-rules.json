@@ -863,6 +863,52 @@
         "intentPatterns": []
       }
     },
+    "plugin-system": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "priority": "high",
+      "scope": "all",
+      "alwaysActivate": false,
+      "filePatterns": [
+        "packages/core/src/plugins/**",
+        "packages/core/src/model/RivetPlugin.ts",
+        "packages/core/src/model/NodeDefinition.ts",
+        "packages/core/src/model/NodeImpl.ts",
+        "packages/core/src/model/NodeRegistration.ts",
+        "packages/app/src/hooks/useProjectPlugins.ts",
+        "packages/app/src/plugins.ts"
+      ],
+      "promptTriggers": {
+        "keywords": [
+          "RivetPlugin",
+          "PluginNodeImpl",
+          "pluginNodeDefinition",
+          "registerPlugin",
+          "PluginLoadSpec",
+          "configSpec",
+          "plugin",
+          "system",
+          "plugin system",
+          "authoring",
+          "registration",
+          "loading",
+          "rivet's",
+          "packages",
+          "plugins",
+          "model",
+          "NodeDefinition",
+          "NodeImpl",
+          "NodeRegistration",
+          "hooks",
+          "useProjectPlugins"
+        ],
+        "intentPatterns": [
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*plugin system",
+          "plugin system.*(create|update|fix|add|modify|change|debug|refactor|implement|build)",
+          "(create|update|fix|add|modify|change|debug|refactor|implement|build).*plugin.*system"
+        ]
+      }
+    },
     "project-management": {
       "type": "domain",
       "enforcement": "suggest",

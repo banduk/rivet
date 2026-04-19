@@ -267,6 +267,8 @@ detect_skill_domain() {
         detected_skills="node-property-editors"
     elif [[ "$file" =~ /nodes/ ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /DataValue ]] || [[ "$file" =~ /commands/ ]] || [[ "$file" =~ /state/ ]] || [[ "$file" =~ /bundle.esbuild ]]; then
         detected_skills="packages"
+    elif [[ "$file" =~ /plugins/ ]] || [[ "$file" =~ /RivetPlugin ]] || [[ "$file" =~ /NodeDefinition ]] || [[ "$file" =~ /NodeImpl ]] || [[ "$file" =~ /NodeRegistration ]] || [[ "$file" =~ /useProjectPlugins ]] || [[ "$file" =~ /plugins ]]; then
+        detected_skills="plugin-system"
     elif [[ "$file" =~ /savedGraphs ]] || [[ "$file" =~ /useLoadProject ]] || [[ "$file" =~ /useSaveProject ]] || [[ "$file" =~ /useNewProject ]] || [[ "$file" =~ /useLoadProjectWithFileBrowser ]] || [[ "$file" =~ /Project ]] || [[ "$file" =~ /serialization/ ]]; then
         detected_skills="project-management"
     elif [[ "$file" =~ /debugger ]] || [[ "$file" =~ /useRemoteDebugger ]] || [[ "$file" =~ /useRemoteExecutor ]] || [[ "$file" =~ /DebuggerConnectPanel ]] || [[ "$file" =~ /execution ]]; then

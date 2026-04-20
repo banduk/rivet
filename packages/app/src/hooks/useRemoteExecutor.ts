@@ -15,6 +15,7 @@ import { graphState } from '../state/graph';
 import { settingsState } from '../state/settings';
 import { setCurrentDebuggerMessageHandler, useRemoteDebugger } from './useRemoteDebugger';
 import { fillMissingSettingsFromEnvironmentVariables } from '../utils/tauri';
+import { mergeRemoteConfig } from '../utils/ssoAuth.js';
 import { loadedProjectState, projectContextState, projectDataState, projectState } from '../state/savedGraphs';
 import { useStableCallback } from './useStableCallback';
 import { toast } from 'react-toastify';
@@ -28,6 +29,7 @@ import { selectedExecutorState } from '../state/execution';
 import { datasetProvider } from '../utils/globals';
 import { type RunDataByNodeId, lastRunDataByNodeState } from '../state/dataFlow';
 import { useAtomValue, useSetAtom, useAtom } from 'jotai';
+import { ssoSessionState, remoteConfigState } from '../state/settings.js';
 
 // TODO: This allows us to retrieve the GraphOutputs from the remote debugger.
 // If the remote debugger events had a unique ID for each run, this would feel a lot less hacky.
@@ -46,6 +48,8 @@ export function useRemoteExecutor() {
   const currentExecution = useCurrentExecution();
   const graph = useAtomValue(graphState);
   const savedSettings = useAtomValue(settingsState);
+  const ssoSession = useAtomValue(ssoSessionState);
+  const remoteConfig = useAtomValue(remoteConfigState);
   const [{ testSuites }, setTrivetState] = useAtom(trivetState);
   const setUserInputModalSubmit = useSetAtom(userInputModalSubmitState);
   const setUserInputQuestions = useSetAtom(userInputModalQuestionsState);
@@ -158,9 +162,13 @@ export function useRemoteExecutor() {
               [graph.metadata!.id!]: graph,
             },
           },
-          settings: await fillMissingSettingsFromEnvironmentVariables(
-            savedSettings,
-            globalRivetNodeRegistry.getPlugins(),
+          settings: mergeRemoteConfig(
+            await fillMissingSettingsFromEnvironmentVariables(
+              savedSettings,
+              globalRivetNodeRegistry.getPlugins(),
+            ),
+            remoteConfig,
+            ssoSession,
           ),
         });
 

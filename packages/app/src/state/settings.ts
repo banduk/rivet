@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
-import { type Settings } from '@ironclad/rivet-core';
+import { type Settings, type SsoConfig, type SsoSession, type RemoteConfig } from '@ironclad/rivet-core';
 import { isInTauri } from '../utils/tauri';
 import { DEFAULT_CHAT_NODE_TIMEOUT } from '../../../core/src/utils/defaults';
 import { createHybridStorage } from './storage.js';
@@ -69,3 +69,12 @@ export const updateStatusState = atom<string | undefined>(undefined);
 export const zoomSensitivityState = atomWithStorage<number>('zoomSensitivity', 0.25, storage);
 
 export const debuggerDefaultUrlState = atomWithStorage('debuggerDefaultUrl', 'ws://localhost:21888', storage);
+
+/** Distributor-configured SSO provider settings. Persisted so the app remembers config across restarts. */
+export const ssoConfigState = atomWithStorage<SsoConfig | undefined>('ssoConfig', undefined, storage);
+
+/** Active SSO session. Held in memory only — requires re-login after app restart. */
+export const ssoSessionState = atom<SsoSession | undefined>(undefined);
+
+/** Settings/secrets fetched from the distributor's server after login. In-memory only. */
+export const remoteConfigState = atom<RemoteConfig | undefined>(undefined);

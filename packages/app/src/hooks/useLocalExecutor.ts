@@ -30,6 +30,8 @@ import { entries } from '../../../core/src/utils/typeSafety';
 import { type RunDataByNodeId, lastRunDataByNodeState } from '../state/dataFlow';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { TauriProjectReferenceLoader } from '../model/TauriProjectReferenceLoader';
+import { ssoSessionState, remoteConfigState } from '../state/settings.js';
+import { mergeRemoteConfig } from '../utils/ssoAuth.js';
 
 export function useLocalExecutor() {
   const project = useAtomValue(projectState);
@@ -40,6 +42,8 @@ export function useLocalExecutor() {
   const setUserInputModalSubmit = useSetAtom(userInputModalSubmitState);
   const setUserInputQuestions = useSetAtom(userInputModalQuestionsState);
   const savedSettings = useAtomValue(settingsState);
+  const ssoSession = useAtomValue(ssoSessionState);
+  const remoteConfig = useAtomValue(remoteConfigState);
   const loadedRecording = useAtomValue(loadedRecordingState);
   const setLastRecordingState = useSetAtom(lastRecordingState);
   const [{ testSuites }, setTrivetState] = useAtom(trivetState);
@@ -152,9 +156,13 @@ export function useLocalExecutor() {
 
           results = await processor.processGraph(
             {
-              settings: await fillMissingSettingsFromEnvironmentVariables(
-                savedSettings,
-                globalRivetNodeRegistry.getPlugins(),
+              settings: mergeRemoteConfig(
+                await fillMissingSettingsFromEnvironmentVariables(
+                  savedSettings,
+                  globalRivetNodeRegistry.getPlugins(),
+                ),
+                remoteConfig,
+                ssoSession,
               ),
               nativeApi: new TauriNativeApi(),
               datasetProvider,

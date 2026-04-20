@@ -33,6 +33,7 @@ import { DEFAULT_CHAT_NODE_TIMEOUT } from '../../../core/src/utils/defaults';
 import useAsyncEffect from 'use-async-effect';
 import { getVersion } from '@tauri-apps/api/app';
 import { swallowPromise } from '../utils/syncWrapper';
+import { SsoSettingsPage } from './SsoSettingsPage.js';
 
 interface SettingsModalProps {}
 
@@ -52,7 +53,7 @@ const modalBody = css`
   }
 `;
 
-type DefaultPages = 'general' | 'openai' | 'plugins' | 'updates';
+type DefaultPages = 'general' | 'openai' | 'plugins' | 'updates' | 'authentication';
 
 type Pages = DefaultPages | string;
 
@@ -128,6 +129,9 @@ export const SettingsModal: FC<SettingsModalProps> = () => {
                       <ButtonItem isSelected={page === 'updates'} onClick={() => setPage('updates')}>
                         Updates
                       </ButtonItem>
+                      <ButtonItem isSelected={page === 'authentication'} onClick={() => setPage('authentication')}>
+                        Authentication
+                      </ButtonItem>
                       <CustomPluginsTabs page={page} />
                     </div>
                   </NavigationContent>
@@ -139,6 +143,7 @@ export const SettingsModal: FC<SettingsModalProps> = () => {
                   .with('openai', () => <OpenAiSettingsPage />)
                   .with('plugins', () => <PluginsSettingsPage />)
                   .with('updates', () => <UpdatesSettingsPage />)
+                  .with('authentication', () => <SsoSettingsPage />)
                   .with(P.string, (id) => customPluginsPages[id])
                   .exhaustive()}
               </main>

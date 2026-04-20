@@ -31,10 +31,12 @@ import { NewProjectModalRenderer } from './NewProjectModal';
 import { useWindowTitle } from '../hooks/useWindowTitle';
 import { CommunityOverlayRenderer } from './community/CommunityOverlay';
 import { HelpModal } from './HelpModal';
+import { SsoLoginButton } from './SsoLoginButton.js';
 import { openedProjectsSortedIdsState } from '../state/savedGraphs';
 import { NoProject } from './NoProject';
 import { swallowPromise, syncWrapper } from '../utils/syncWrapper';
 import { allInitializeStoreFns } from '../state/storage';
+import { useInitSsoConfig } from '../hooks/useInitSsoConfig.js';
 
 const styles = css`
   overflow: hidden;
@@ -52,6 +54,7 @@ export const RivetApp: FC = () => {
   const noProjectOpen = openedProjectIds.length === 0;
 
   useLoadStaticData();
+  useInitSsoConfig();
 
   useMenuCommands({
     onRunGraph: syncWrapper(tryRunGraph),
@@ -102,6 +105,7 @@ export const RivetApp: FC = () => {
           <CommunityOverlayRenderer />
         </>
       )}
+      <SsoLoginButton />
       <HelpModal />
       <ToastContainer enableMultiContainer position="bottom-right" hideProgressBar newestOnTop />
       <ToastContainer

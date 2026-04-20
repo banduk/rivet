@@ -6,6 +6,7 @@
 use std::path::{Path, PathBuf};
 
 use tauri::{AppHandle, CustomMenuItem, InvokeError, Manager, Menu, MenuItem, Submenu};
+mod oauth;
 mod plugins;
 
 fn main() {
@@ -23,7 +24,8 @@ fn main() {
             get_environment_variable,
             plugins::extract_package_plugin_tarball,
             allow_data_file_scope,
-            read_relative_project_file
+            read_relative_project_file,
+            oauth::start_oauth_callback_server
         ])
         .menu(create_menu())
         .on_menu_event(|event| match event.menu_item_id() {

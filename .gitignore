@@ -46,4 +46,5 @@ packages/app/stats.html
 .claude/graph.json
 .claude/graph-index.json
 .claude/code-map.md
+.claude/tsc-cache/
 dev/
